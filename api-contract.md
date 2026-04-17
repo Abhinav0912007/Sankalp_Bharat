@@ -20,6 +20,7 @@ Response:
   "token": "demo-token",
   "user": {
     "id": "usr_1",
+    "orgId": "org_1",
     "name": "Asha Verma",
     "role": "SUSTAINABILITY_MANAGER"
   }
