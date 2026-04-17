@@ -19,6 +19,20 @@ This document tracks completed work per team member with timestamps.
 
 ---
 
+## Sahiti — Database & Calculations
+
+### Phase 1 ✅ `2026-04-17`
+
+- Generated `schema.sql` and established Supabase Postgres database architecture natively
+- Implemented Database Postgres Triggers for automated Issue generation
+- Provisioned Next.js codebase in the `/carbon-lens` directory
+- Integrated `@supabase/ssr` database utilities and environment variables
+- Created highly robust Calculation Engine Service backing Phase 2 requirements
+- Core Database is live and secured with Row Level Security (RLS)
+- Backend calculation logic (Phase 2 core) is actively established
+
+---
+
 ## Atharva — Frontend
 
 ### Phase 1 ✅ `2026-04-17 ~21:30 IST`

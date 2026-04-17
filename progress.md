@@ -17,6 +17,7 @@
 - AI role: optional enhancement, not core logic
 - Tech stack confirmed: Vite + React + Zustand (frontend), Express + Prisma + SQLite (backend)
 - Shared type contracts enforced via `/shared/types/` — single source of truth for all team members
+- Sahiti: Supabase Postgres with RLS + Next.js calculation engine established as secondary DB layer
 
 ---
 
@@ -32,6 +33,11 @@
 - API contract draft
 - Demo script draft
 - Pitch notes draft
+- Initialized Next.js `carbon-lens` repository scaffolding
+- Setup Supabase Auth / PostgreSQL database
+- Designed and executed `schema.sql` establishing 7 core relational tables
+- Implemented Row-Level Security (RLS) and Webhook Triggers for automated governance
+- Built `src/lib/services/emissions.ts` core Calculation Engine for Scope 1, 2, and CSV batch processing.
 
 ### Atharva — Frontend Phase 1 (completed `2026-04-17 ~21:30 IST`)
 - Vite + React + TypeScript scaffolding
@@ -108,6 +114,15 @@
 
 ---
 
+## Risks
+
+- Scope creep during implementation
+- Over-focus on AI instead of core flows
+- Underestimating seeded data preparation
+- Spending too much time on export polish
+
+---
+
 ## Demo Readiness Checklist
 
 - [x] Problem and solution story defined
@@ -156,6 +171,14 @@
 - `2026-04-17 23:55 IST` — Backend Phase 2 & 3 complete: JWT middleware, Issues API, RBAC guard
 - `2026-04-17 23:55 IST` — Backend TypeScript: 0 errors. Server live at `localhost:5000`
 - `2026-04-17 23:58 IST` — End-to-end login verified: JWT returned, facilities endpoint authenticated
+
+---
+
+## Next Immediate Tasks
+
+- Seed the `emission_factors` and `organizations` tables in Supabase
+- Build Server Actions bridging the frontend forms to the `emissions.ts` calculation service
+- Develop the Dashboard UI components mapped to our backend APIs
 
 ---
 
