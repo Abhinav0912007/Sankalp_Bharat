@@ -1,9 +1,9 @@
-# Product Requirements Document (PRD)
-## Digital Intelligent Platform for ESG Performance and GHG Monitoring
+# Product Requirements Document
+## CarbonLens
 
-**Version:** 1.0  
-**Status:** Draft  
-**Owner:** Product / Sustainability Team  
+**Version:** 2.0  
+**Status:** Active  
+**Owner:** Product / Hackathon Team  
 **Last Updated:** 2026-04-17
 
 ---
@@ -11,62 +11,53 @@
 ## 1. Overview
 
 ### 1.1 Problem Statement
-Organizations face major challenges in ESG and GHG reporting because data is fragmented across departments, suppliers, and systems. Manual collection is slow, error-prone, and difficult to audit. Leadership often lacks a reliable source of truth for emissions performance, scenario analysis, and transition planning.
+Manufacturing SMEs struggle with ESG and GHG reporting because data is scattered across operations, finance, procurement, and suppliers. Manual collection is slow, error-prone, and difficult to audit. Leadership often lacks a trusted source of truth for emissions visibility and accountability.
 
 ### 1.2 Product Vision
-Build a centralized, assurance-ready digital platform that collects, validates, calculates, analyzes, and reports ESG and GHG data across the enterprise.
+Build a smart ESG control tower for manufacturing SMEs that helps teams collect emissions-related data, validate it, calculate emissions, track accountability, and generate trusted sustainability summaries.
 
 ### 1.3 Product Goal
-Provide a scalable platform to measure Scope 1, Scope 2, and material Scope 3 emissions while improving governance, traceability, and reporting quality.
+Provide a practical MVP that centralizes Scope 1 and Scope 2 reporting, supports limited and realistic Scope 3 supplier input, and adds governance and AI-smart insight layers on top of deterministic calculations.
 
 ---
 
 ## 2. Objectives
 
 ### Primary Objectives
-1. Establish a standardized enterprise-wide GHG measurement system.
-2. Centralize ESG and activity data into a single source of truth.
-3. Support Scope 3 supplier engagement and prioritization.
-4. Enable climate governance and board-level visibility.
-5. Generate assurance-ready sustainability reports with audit trails.
+1. Centralize ESG and GHG activity data into one trusted system.
+2. Calculate Scope 1 and Scope 2 emissions reliably.
+3. Support limited Scope 3 supplier engagement for high-impact categories.
+4. Make missing or low-quality data visible and actionable.
+5. Generate concise leadership-ready and audit-friendly reporting outputs.
 
 ### Business Outcomes
-- Reduce manual ESG data collection effort
-- Improve data quality and consistency
-- Increase reporting speed and audit confidence
-- Support strategic transition and carbon reduction planning
-- Strengthen investor, regulator, and board trust
+- Reduce manual data collection effort
+- Improve data consistency and reporting trust
+- Increase visibility into ownership and unresolved issues
+- Give leadership a simple sustainability snapshot
+- Show a realistic path from hackathon MVP to real product
 
 ---
 
 ## 3. Users and Personas
 
 ### 3.1 Sustainability Manager
-- Collects emissions data
-- Prepares disclosures
-- Tracks targets and progress
-- Needs audit-ready reporting and validation
+- Reviews emissions status
+- Tracks data quality and unresolved issues
+- Generates summaries for leadership
 
-### 3.2 Procurement Manager
-- Works with suppliers
-- Requests Scope 3 data
-- Tracks supplier response and quality
-- Needs prioritization of high-impact suppliers
+### 3.2 Operations/Admin User
+- Uploads or enters facility/activity data
+- Resolves validation issues
+- Maintains reporting inputs
 
-### 3.3 Finance / Reporting Analyst
-- Consolidates data across entities
-- Validates figures
-- Exports reports for leadership and disclosures
+### 3.3 Supplier User
+- Submits limited Scope 3 data
+- Responds to simple, guided requests
 
-### 3.4 Compliance / Audit Team
-- Reviews calculations and evidence
-- Checks traceability and approvals
-- Needs version history and audit logs
-
-### 3.5 Executive Leadership / Board
-- Views performance dashboards
-- Reviews risk, trends, and targets
-- Needs clear governance and escalation visibility
+### 3.4 Leadership / Board Reviewer
+- Views emissions summary, hotspots, and risk indicators
+- Consumes report-ready output
 
 ---
 
@@ -74,21 +65,24 @@ Provide a scalable platform to measure Scope 1, Scope 2, and material Scope 3 em
 
 ### 4.1 In Scope for MVP
 - User authentication and role-based access
-- Organization, site, and supplier setup
-- Multi-format ESG activity data capture (Manual, PDF, Image OCR, Excel, CSV)
-- Unified calculation engine processing Scope 1, Scope 2, and evaluated immediately against a **massive Scope 3 dataset**.
-- Emission factor management
-- Validation rules and audit logging
-- Dashboards for emissions and trends
-- Report generation and export
-- Approval workflows for submitted data
+- Organization, facility, and supplier setup
+- Activity data capture through manual entry and CSV upload
+- Scope 1 and Scope 2 calculation engine
+- Limited Scope 3 supplier submission flow
+- Data validation and issue generation
+- Dashboard for emissions, trends, and issue visibility
+- Governance view for ownership and escalation
+- Summary report generation
+- Optional AI-smart summaries based on already-calculated outputs
 
 ### 4.2 Out of Scope for MVP
-- Full regulatory filing automation for all jurisdictions
-- Real-time sensor/IoT integration across all assets
-- Advanced AI-based forecasting and optimization
-- Full ERP replacement
-- All Scope 3 categories on day one
+- OCR ingestion for PDFs and images
+- Massive Scope 3 modeling
+- Full regulatory automation
+- ERP integrations
+- Real-time IoT feeds
+- Advanced forecasting as a core feature
+- Deep multi-entity enterprise workflows
 
 ---
 
@@ -98,34 +92,22 @@ Provide a scalable platform to measure Scope 1, Scope 2, and material Scope 3 em
 - Users must authenticate securely.
 - The system must support role-based access control.
 - Roles should include at least:
-  - Admin
   - Sustainability Manager
-  - Data Contributor
-  - Approver
-  - Auditor
-  - Executive Viewer
+  - Operations/Admin
+  - Supplier
+  - Leadership Viewer
 
 ### 5.2 Organization Setup
 - Users must be able to configure:
   - organization
-  - business units
-  - facilities/sites
+  - facilities
   - suppliers
   - reporting periods
-- Data should be linked to the correct entity and period.
 
 ### 5.3 Data Collection
 - Users must be able to manually enter activity data.
-- The platform must accept unstructured and structured multi-format uploads, specifically: **Images (using OCR), PDFs (Text/OCR extraction), Excel, and CSVs**.
-- The system must support parsing activity types dynamically from these documents:
-  - fuel consumption
-  - electricity usage
-  - travel
-  - waste
-  - purchased goods/services
-  - supplier-provided activity data
-- An immediate focus will be placed on injecting and processing a massive Scope 3 dataset during setup.
-- Each record should store source, owner, timestamp, and evidence links.
+- The platform must accept CSV uploads.
+- Each record should store source, owner, timestamp, and validation status.
 
 ### 5.4 Emissions Calculation
 - The platform must calculate:
@@ -133,157 +115,113 @@ Provide a scalable platform to measure Scope 1, Scope 2, and material Scope 3 em
   - Scope 2 emissions
   - selected Scope 3 emissions
 - Calculations must use configurable emission factors.
-- The system must show formula breakdown and calculation traceability.
-- Historical recalculations must be possible when emission factors change.
+- Calculation logic must remain deterministic and traceable.
 
 ### 5.5 Scope 3 Supplier Engagement
-- The platform must support supplier onboarding.
-- Users must be able to request data from suppliers.
-- Suppliers must be prioritized based on impact/materiality.
+- The platform must support a simple supplier submission flow.
+- Scope 3 should remain limited to a few practical categories.
 - Supplier responses must be tracked by status:
   - not requested
   - requested
-  - in progress
   - submitted
   - validated
   - rejected
-- The system should score supplier data quality.
 
-### 5.6 Validation and Audit Trail
-- The platform must validate mandatory fields and input ranges.
-- Invalid records must be flagged for review.
-- Every update must be versioned.
-- The system must maintain a complete audit trail of:
-  - record creation
-  - updates
-  - approvals
-  - recalculations
-  - report generation
+### 5.6 Validation and Governance
+- Required fields and suspicious values must be flagged.
+- Issues must be assignable to an owner.
+- Governance views must show unresolved items clearly.
 
 ### 5.7 Reporting and Dashboards
 - The platform must provide dashboards for:
   - total emissions by scope
-  - emissions by business unit
+  - emissions by facility
   - trends over time
-  - data completeness
-  - supplier response status
-- Users must be able to export reports in PDF and Excel formats.
-- Reports must support audit and board review use cases.
+  - supplier submission status
+  - open issues
+- Users must be able to generate a concise summary report.
 
-### 5.8 Governance and Escalation
-- The system must support approval workflows.
-- Missing or late data should trigger escalation alerts.
-- Governance views must show owners, approvers, and unresolved issues.
-- Board-level summaries should be available for executives.
-
-### 5.9 Scenario Analysis
-- The platform should allow users to compare baseline vs target scenarios.
-- It should support simple carbon pricing assumptions.
-- Users should be able to view emissions reduction pathways.
-- Scenario logic for MVP can be rule-based.
+### 5.8 AI-Smart Insight Layer
+- The system may generate summaries and recommendations only after deterministic calculations are complete.
+- AI must not be the source of truth for calculations or compliance claims.
 
 ---
 
 ## 6. Non-Functional Requirements
 
-### 6.1 Security
+### 6.1 Simplicity
+- The product should remain understandable and demoable within a hackathon.
+
+### 6.2 Security
 - Role-based access control
-- Encrypted data in transit and at rest
 - Secure authentication and session handling
 
-### 6.2 Performance
-- Dashboard views should load within acceptable business-use time
-- Bulk import should handle large data sets reliably
-
-### 6.3 Scalability
-- System should support expansion across sites, regions, and suppliers
-- Architecture should allow modular feature growth
-
-### 6.4 Auditability
+### 6.3 Auditability
 - Every reported value must be traceable to source data
-- Historical versions of calculations and reports must be retained
+- Issues and status changes must be visible
+
+### 6.4 Scalability
+- Architecture should support future growth to more facilities, suppliers, and categories
 
 ### 6.5 Usability
-- Interface should be simple enough for non-technical users
-- Data entry and review should be efficient and guided
-
-### 6.6 Reliability
-- Data should not be lost during import or processing
-- System should support backup and recovery
+- Interface should be simple for non-technical users
+- Data entry and issue resolution should be efficient
 
 ---
 
 ## 7. Success Metrics
 
-- Reduction in manual data collection effort
-- Percentage of data captured in standardized format
-- Reduction in data errors and audit exceptions
-- Time required to generate ESG/GHG reports
-- Coverage of Scope 1, Scope 2, and priority Scope 3 categories
-- Supplier response rate
-- Number of validated records vs rejected records
-- Executive usage of dashboard and reports
+- Reduction in manual data reconciliation
+- Percentage of records captured in standardized format
+- Time taken to create a leadership-ready summary
+- Number of unresolved data issues over time
+- Supplier response rate for selected Scope 3 categories
+- Demo clarity and completeness for hackathon judging
 
 ---
 
 ## 8. Assumptions
 
-- The organization has access to internal activity data.
+- The company has access to internal facility/activity data.
 - Emission factors are available from trusted sources.
-- Initial rollout will focus on a pilot business unit or region.
-- Supplier participation will improve gradually through engagement.
+- Initial product story focuses on manufacturing SMEs.
+- Scope 3 is intentionally limited for MVP credibility.
 
 ---
 
 ## 9. Risks and Mitigations
 
-### Risk: Poor data quality
-**Mitigation:** Validation rules, approvals, and evidence upload requirements
+### Risk: Scope creep
+**Mitigation:** Keep the MVP focused on operations and governance first.
 
-### Risk: Low supplier response rate
-**Mitigation:** Prioritize suppliers by materiality and automate reminders
+### Risk: Weak demo story
+**Mitigation:** Preserve a clear flow from input to calculation to issue tracking to reporting.
 
 ### Risk: Scope 3 complexity
-**Mitigation:** Start with high-impact categories and expand over time
+**Mitigation:** Support only limited, high-impact supplier categories.
 
-### Risk: Changing ESG regulations
-**Mitigation:** Keep reporting logic configurable and versioned
-
-### Risk: Low user adoption
-**Mitigation:** Provide simple workflows, role-based views, and training
+### Risk: AI instability
+**Mitigation:** Keep AI optional and layered on top of deterministic outputs.
 
 ---
 
 ## 10. MVP Release Criteria
 
 The MVP is successful when:
-- Users can securely log in
-- ESG data can be captured and imported
+- Users can log in
+- Activity data can be entered or uploaded
 - Scope 1 and Scope 2 emissions are calculated correctly
-- Selected Scope 3 categories are supported
-- Dashboards display consolidated emissions data
-- Reports can be exported
-- Audit trail and approvals are available
-- Leadership can review summary dashboards
+- Limited Scope 3 supplier input is supported
+- Validation issues are created and tracked
+- Dashboards show consolidated emissions and governance status
+- Leadership can view a concise summary report
 
 ---
 
 ## 11. Future Enhancements
-- Full Scope 3 category coverage
-- Advanced scenario modeling
-- AI-assisted anomaly detection
-- Automated regulatory reporting
-- Supplier portal enhancements
-- Multi-entity consolidation
-- Benchmarking and peer comparison
-
----
-
-## 12. Open Questions
-- Which reporting standards must be supported first?
-- Which Scope 3 categories are most material for the first release?
-- Which regions or business units will pilot the product?
-- What are the required approval levels for board reporting?
-- Which data sources will be integrated in phase one?
-
----
+- Broader Scope 3 category coverage
+- Better scenario planning
+- ERP integrations
+- Advanced AI-assisted issue detection
+- Multi-entity scaling
+- Stronger audit workflows

@@ -1,135 +1,41 @@
 # Contributing Guidelines
-## Digital Intelligent Platform for ESG Performance and GHG Monitoring
+## CarbonLens
 
-**Version:** 1.0  
-**Status:** Draft  
+**Version:** 2.0  
+**Status:** Active  
 **Last Updated:** 2026-04-17
 
 ---
 
-## 1. Purpose
-
-This document defines how contributors should work on this project to maintain quality, consistency, and traceability.
-
----
-
-## 2. Contribution Principles
+## 1. Contribution Principles
 
 - Keep changes small and focused
-- Follow the project scope and architecture
+- Follow the current CarbonLens product direction
 - Avoid unnecessary complexity
-- Preserve auditability and traceability
-- Write code and documentation that is easy to understand
-- Add or update tests for any meaningful change
+- Preserve traceability and clarity
+- Update docs when product logic changes
 
----
+## 2. Before Starting
 
-## 3. Working Rules
-
-### Before Starting
-- Read `README.md`
+- Read `readme.md`
 - Read `PRD.md`
-- Read `ARCHITECTURE.md`
-- Read `TASKS.md`
-- Check `DECISIONS.md` if available
+- Read `CRD.md`
+- Read `ARCHITECTURE_Version2.md`
+- Read `TASKS_Version2.md`
+- Read `rules.md`
 
-### During Development
-- Use clear naming conventions
-- Keep business logic separate from UI logic
-- Reuse existing patterns when possible
-- Do not change scope without approval
-- Update documentation when behavior changes
+## 3. Development Rules
 
-### Before Submitting Changes
-- Run tests
-- Check formatting and linting
-- Verify that calculations and workflows still behave correctly
-- Ensure there are no broken imports or references
+- Keep calculations separate from UI logic
+- Keep AI separate from the calculation engine
+- Prefer practical features over speculative ones
+- Do not increase Scope 3 scope without approval
+- Do not add OCR to MVP without approval
 
----
+## 4. Testing Expectations
 
-## 4. Code Style Guidelines
-
-- Prefer readable, maintainable code over clever code
-- Use consistent formatting
-- Keep functions small and focused
-- Avoid duplicate logic
-- Add comments only where the logic is not obvious
-- Use descriptive names for variables, functions, and files
-
----
-
-## 5. Testing Expectations
-
-Any change that affects behavior should include tests for:
-- Core business logic
-- Validation rules
-- Workflow transitions
-- API responses
-- Calculation outputs
-
----
-
-## 6. Documentation Expectations
-
-Update documentation when:
-- A feature is added
-- A workflow changes
-- A data model changes
-- An API changes
-- A calculation method changes
-- A new decision is made
-
----
-
-## 7. Pull Request Expectations
-
-A good pull request should include:
-- Clear summary of changes
-- Reason for the change
-- Relevant screenshots or examples if applicable
-- Test results
-- Notes about impacts to calculations, reports, or workflows
-
----
-
-## 8. Branching and Commit Guidelines
-
-### Branch Names
-Use descriptive branch names such as:
-- `feature/activity-import`
-- `feature/emissions-engine`
-- `fix/report-export`
-- `docs/update-prd`
-
-### Commit Messages
-Use clear commit messages such as:
-- `Add activity import validation`
-- `Implement Scope 1 calculation service`
-- `Update dashboard summary cards`
-
----
-
-## 9. Review Checklist
-
-Before merging, confirm:
-- Requirements are satisfied
-- Tests pass
-- Documentation is updated
-- No unnecessary files are changed
-- Audit logging is preserved
-- Security and permissions are correct
-
----
-
-## 10. Project-Specific Notes
-
-This project focuses on ESG and GHG data integrity. Contributors should always consider:
-- data accuracy
-- traceability
-- reporting confidence
-- governance needs
-- supplier data quality
-- audit readiness
-
----
+- Test calculation logic
+- Test validation rules
+- Test issue workflows
+- Test role-based access
+- Test report output paths
