@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Snackbar, Alert } from '@mui/material';
 import carbonLensTheme from './theme/carbonLensTheme';
 import AppLayout from './layouts/AppLayout';
 import DashboardPage from './pages/DashboardPage';
@@ -24,6 +24,20 @@ import ReportsPage from './pages/ReportsPage';
  * - /reports → Report Generation (Phase 4)
  */
 const App: React.FC = () => {
+  const [errorToast, setErrorToast] = useState<{ open: boolean; message: string }>({ open: false, message: '' });
+
+  useEffect(() => {
+    const handleError = (e: CustomEvent<string>) => {
+      setErrorToast({ open: true, message: e.detail });
+    };
+    window.addEventListener('axios-error', handleError as EventListener);
+    return () => window.removeEventListener('axios-error', handleError as EventListener);
+  }, []);
+
+  const handleCloseToast = () => {
+    setErrorToast((prev) => ({ ...prev, open: false }));
+  };
+
   return (
     <ThemeProvider theme={carbonLensTheme}>
       <CssBaseline />
@@ -40,6 +54,17 @@ const App: React.FC = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+
+      <Snackbar 
+        open={errorToast.open} 
+        autoHideDuration={6000} 
+        onClose={handleCloseToast}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert onClose={handleCloseToast} severity="error" sx={{ width: '100%' }}>
+          {errorToast.message}
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 };

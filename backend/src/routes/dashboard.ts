@@ -21,20 +21,20 @@ router.get('/summary', async (req: Request, res: Response): Promise<void> => {
   try {
     const orgId = req.user!.orgId;
 
-    const records = await prisma.emissionRecord.findMany({
+    const scopeGroups = await prisma.emissionRecord.groupBy({
+      by: ['scope'],
       where: { organizationId: orgId, status: 'ACCEPTED' },
-      select: { scope: true, calculatedEmissions: true },
+      _sum: { calculatedEmissions: true },
     });
 
-    const scope1 = records
-      .filter(r => r.scope === 'SCOPE_1')
-      .reduce((sum, r) => sum + r.calculatedEmissions, 0);
-    const scope2 = records
-      .filter(r => r.scope === 'SCOPE_2')
-      .reduce((sum, r) => sum + r.calculatedEmissions, 0);
-    const scope3 = records
-      .filter(r => r.scope === 'SCOPE_3')
-      .reduce((sum, r) => sum + r.calculatedEmissions, 0);
+    let scope1 = 0;
+    let scope2 = 0;
+    let scope3 = 0;
+    for (const g of scopeGroups) {
+      if (g.scope === 'SCOPE_1') scope1 = g._sum.calculatedEmissions || 0;
+      else if (g.scope === 'SCOPE_2') scope2 = g._sum.calculatedEmissions || 0;
+      else if (g.scope === 'SCOPE_3') scope3 = g._sum.calculatedEmissions || 0;
+    }
 
     const totalEmissions = scope1 + scope2 + scope3;
 
@@ -70,17 +70,21 @@ router.get('/trends', async (req: Request, res: Response): Promise<void> => {
   try {
     const orgId = req.user!.orgId;
 
-    const records = await prisma.emissionRecord.findMany({
+    const groupedRecords = await prisma.emissionRecord.groupBy({
+      by: ['periodYear', 'periodMonth'],
       where: { organizationId: orgId, status: 'ACCEPTED' },
-      select: { periodYear: true, periodMonth: true, calculatedEmissions: true },
-      orderBy: [{ periodYear: 'asc' }, { periodMonth: 'asc' }],
+      _sum: { calculatedEmissions: true },
+      orderBy: [
+        { periodYear: 'asc' },
+        { periodMonth: 'asc' }
+      ]
     });
 
     // Group by year-month
     const grouped: Record<string, number> = {};
-    for (const r of records) {
+    for (const r of groupedRecords) {
       const key = `${r.periodYear}-${String(r.periodMonth).padStart(2, '0')}`;
-      grouped[key] = (grouped[key] ?? 0) + r.calculatedEmissions;
+      grouped[key] = (grouped[key] ?? 0) + (r._sum.calculatedEmissions || 0);
     }
 
     const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',

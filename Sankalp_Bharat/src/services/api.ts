@@ -41,6 +41,9 @@ api.interceptors.response.use(
       // Clear auth and redirect to login
       localStorage.removeItem('carbonlens_auth');
       window.location.href = '/login';
+    } else if (error.response && error.response.status >= 400) {
+      const message = error.response.data?.message || error.message || 'An error occurred';
+      window.dispatchEvent(new CustomEvent('axios-error', { detail: message }));
     }
     return Promise.reject(error);
   }

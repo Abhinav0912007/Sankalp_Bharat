@@ -49,10 +49,10 @@ This document tracks completed work per team member with timestamps.
 - `POST /api/supplier/submit` — external supplier portal with hash-token auth
 - Unique hash generation for unauthenticated supplier URLs
 
-### Phase 3: Pending
+### Phase 3 ✅ `2026-04-18`
 
-- Optimized `GROUP BY` queries for `/api/dashboard/summary` and `/api/dashboard/trends`
-- Replace stub dashboard routes with real aggregation logic
+- ✅ Optimized `GROUP BY` queries for `/api/dashboard/summary` and `/api/dashboard/trends`
+- ✅ Replace stub dashboard routes with real aggregation logic
 
 ---
 
@@ -169,10 +169,10 @@ This document tracks completed work per team member with timestamps.
 - ✅ **Manual Entry Flow**: Built dynamic `ManualEntryPage` form using `react-hook-form` + Zod validation. Form toggles activity unit (Liters/kWh/km/kg), emission scope (Scope 1/2/3), and category based on source type selection (Diesel, Electricity, Travel, Waste, etc.). Facilities fetched from `GET /api/facilities`. Submissions via `POST /api/records/manual`.
 - ✅ **Governance UI**: Constructed Governance Review grid with nested expandable rows showing linked record details, inline 'Approve' and 'Flag' action buttons (calling `POST /api/issues/:id/status`), assign dialog (calling `POST /api/issues/:id/assign`), status filters, and snackbar notifications. All data from `GET /api/issues`.
 
-### Phase 3: Pending
+### Phase 3 ✅ `2026-04-18`
 
-- Recharts Line graph and Donut chart wired to `GET /api/dashboard/summary`
-- Wire metric cards to live API data (replace `—` placeholders)
+- ✅ Recharts Line graph and Donut chart wired to `GET /api/dashboard/summary` and trends
+- ✅ Wire metric cards to live API data (replace `—` placeholders)
 
 ---
 
@@ -191,9 +191,9 @@ This document tracks completed work per team member with timestamps.
 - Repeatable supplier metric entry with file attachment support
 - Supplier submission API integration using unauthenticated `FormData`
 
-### Phase 3: Pending
+### Phase 3 ✅ `2026-04-18`
 
-- Global Axios response interceptor → Toaster alerts on ≥400 errors
+- ✅ Global Axios response interceptor → Toaster alerts on ≥400 errors
 
 ---
 
