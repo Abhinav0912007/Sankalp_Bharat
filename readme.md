@@ -2,7 +2,7 @@
 
 `CarbonLens` is a documentation-first hackathon project for `SKB_P1: Digital Intelligent Platform for ESG Performance and GHG Monitoring`.
 
-It is designed as a simple, practical, and impactful ESG intelligence platform for manufacturing SMEs. The concept focuses on giving companies one trusted place to collect emissions-related data, calculate Scope 1 and Scope 2 emissions, manage limited Scope 3 supplier inputs, track governance issues, and generate audit-friendly sustainability summaries.
+It is designed as a simple, practical, and impactful ESG control tower for manufacturing SMEs. The concept focuses on giving companies one trusted place to collect emissions-related data, calculate Scope 1 and Scope 2 emissions, manage limited Scope 3 supplier inputs, track governance issues, and generate trusted sustainability summaries.
 
 ## Problem We Are Solving
 
@@ -13,14 +13,14 @@ Most organizations still manage ESG and GHG reporting through scattered spreadsh
 - weak visibility for leadership and board-level decisions
 - poor audit readiness and unclear accountability
 
-CarbonLens addresses this by acting as a single source of truth for ESG and GHG data.
+CarbonLens addresses this by acting as a single source of truth for ESG and GHG data, while making accountability and follow-up part of the workflow.
 
 ## Project Direction
 
 - Target users: Sustainability Manager, Operations/Admin team, Supplier, Leadership/Board reviewer
 - Primary audience: manufacturing SMEs
-- Positioning: ESG control tower for carbon visibility, accountability, and reporting
-- Hackathon strategy: build a focused MVP with strong demo value instead of a broad enterprise platform
+- Positioning: smart ESG control tower for carbon visibility, accountability, and simple decision support
+- Hackathon strategy: build a focused operations-first MVP with strong demo value instead of a broad enterprise platform
 
 ## Planned MVP
 
@@ -30,7 +30,7 @@ CarbonLens addresses this by acting as a single source of truth for ESG and GHG 
 - Data quality validation and issue detection
 - Governance dashboard with ownership and escalation
 - Summary reporting for leadership and audit readiness
-- Optional AI-generated narrative insights layered on top of deterministic calculations
+- Optional AI-smart insights layered on top of deterministic calculations
 
 ## Tech Stack
 
@@ -40,6 +40,13 @@ CarbonLens addresses this by acting as a single source of truth for ESG and GHG 
 - Database: SQLite + Prisma
 - Auth: simple seeded demo auth
 - AI add-on: optional OpenAI narrative summaries
+
+## Product Identity
+
+- Core: operations and governance
+- Supporting outcome: reporting readiness
+- Enhancement layer: AI-smart summaries and insights
+- Scope 3 strategy: limited, realistic, and supplier-focused
 
 ## Repository Docs
 

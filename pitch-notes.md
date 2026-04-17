@@ -6,7 +6,7 @@ Companies are being pushed to track ESG performance and greenhouse gas emissions
 
 ## Solution
 
-CarbonLens is a digital ESG intelligence platform for manufacturing SMEs. It centralizes emissions-related data, calculates Scope 1 and Scope 2 footprints, supports limited Scope 3 supplier input, flags data quality issues, and generates audit-friendly sustainability summaries.
+CarbonLens is a smart ESG control tower for manufacturing SMEs. It centralizes emissions-related data, calculates Scope 1 and Scope 2 footprints, supports limited Scope 3 supplier input, flags data quality issues, and generates trusted sustainability summaries.
 
 ## Why It Matters
 
@@ -22,6 +22,7 @@ CarbonLens is a digital ESG intelligence platform for manufacturing SMEs. It cen
 - It treats supplier Scope 3 participation as part of the workflow
 - It keeps calculations transparent and explainable
 - It is designed to be realistically adopted by SMEs
+- It adds an AI-smart layer for insights without making AI the source of truth
 
 ## Hackathon Strength
 
@@ -30,6 +31,7 @@ CarbonLens is a digital ESG intelligence platform for manufacturing SMEs. It cen
 - Practical scope
 - Good visual demo potential
 - Easy to explain in a short pitch
+- Balances futuristic product feel with realistic execution
 
 ## Feasibility
 
@@ -41,5 +43,4 @@ CarbonLens is a digital ESG intelligence platform for manufacturing SMEs. It cen
 
 ## Closing Line
 
-CarbonLens helps organizations move from scattered ESG reporting to reliable climate decision-making.
-
+CarbonLens helps organizations move from scattered ESG reporting to reliable climate operations and decision-making.
