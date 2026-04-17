@@ -1,0 +1,101 @@
+record_id,facility_id,facility_name,billing_start,billing_end,energy_type,quantity,unit,meter_number,supplier_name,invoice_number,grid_region,country,state,contract_type,notes
+S2-0001,FAC-001,Delhi Plant,2026-01-01,2026-01-31,electricity,18450,kWh,MTR-1001,Tata Power,EB-20001,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0002,FAC-002,Mumbai Office,2026-01-01,2026-01-31,electricity,12680,kWh,MTR-1002,Adani Electricity,EB-20002,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0003,FAC-003,Bengaluru Hub,2026-01-01,2026-01-31,electricity,14320,kWh,MTR-1003,BESCOM,EB-20003,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0004,FAC-004,Chennai Warehouse,2026-01-01,2026-01-31,electricity,16890,kWh,MTR-1004,TANGEDCO,EB-20004,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0005,FAC-005,Kolkata Branch,2026-01-01,2026-01-31,electricity,11970,kWh,MTR-1005,CESC,EB-20005,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0006,FAC-006,Hyderabad Plant,2026-01-01,2026-01-31,electricity,19240,kWh,MTR-1006,TSSPDCL,EB-20006,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0007,FAC-007,Pune Office,2026-01-01,2026-01-31,electricity,10850,kWh,MTR-1007,MSEDCL,EB-20007,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0008,FAC-008,Ahmedabad Depot,2026-01-01,2026-01-31,electricity,15460,kWh,MTR-1008,UGVCL,EB-20008,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0009,FAC-009,Jaipur Center,2026-01-01,2026-01-31,electricity,13290,kWh,MTR-1009,JVVNL,EB-20009,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0010,FAC-010,Lucknow Facility,2026-01-01,2026-01-31,electricity,17630,kWh,MTR-1010,UPPCL,EB-20010,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0011,FAC-001,Delhi Plant,2026-02-01,2026-02-28,electricity,17980,kWh,MTR-1001,Tata Power,EB-20011,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0012,FAC-002,Mumbai Office,2026-02-01,2026-02-28,electricity,12140,kWh,MTR-1002,Adani Electricity,EB-20012,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0013,FAC-003,Bengaluru Hub,2026-02-01,2026-02-28,electricity,13860,kWh,MTR-1003,BESCOM,EB-20013,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0014,FAC-004,Chennai Warehouse,2026-02-01,2026-02-28,electricity,16250,kWh,MTR-1004,TANGEDCO,EB-20014,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0015,FAC-005,Kolkata Branch,2026-02-01,2026-02-28,electricity,11490,kWh,MTR-1005,CESC,EB-20015,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0016,FAC-006,Hyderabad Plant,2026-02-01,2026-02-28,electricity,18760,kWh,MTR-1006,TSSPDCL,EB-20016,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0017,FAC-007,Pune Office,2026-02-01,2026-02-28,electricity,10320,kWh,MTR-1007,MSEDCL,EB-20017,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0018,FAC-008,Ahmedabad Depot,2026-02-01,2026-02-28,electricity,14920,kWh,MTR-1008,UGVCL,EB-20018,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0019,FAC-009,Jaipur Center,2026-02-01,2026-02-28,electricity,12840,kWh,MTR-1009,JVVNL,EB-20019,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0020,FAC-010,Lucknow Facility,2026-02-01,2026-02-28,electricity,17110,kWh,MTR-1010,UPPCL,EB-20020,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0021,FAC-001,Delhi Plant,2026-03-01,2026-03-31,electricity,18620,kWh,MTR-1001,Tata Power,EB-20021,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0022,FAC-002,Mumbai Office,2026-03-01,2026-03-31,electricity,12910,kWh,MTR-1002,Adani Electricity,EB-20022,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0023,FAC-003,Bengaluru Hub,2026-03-01,2026-03-31,electricity,14590,kWh,MTR-1003,BESCOM,EB-20023,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0024,FAC-004,Chennai Warehouse,2026-03-01,2026-03-31,electricity,17080,kWh,MTR-1004,TANGEDCO,EB-20024,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0025,FAC-005,Kolkata Branch,2026-03-01,2026-03-31,electricity,12130,kWh,MTR-1005,CESC,EB-20025,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0026,FAC-006,Hyderabad Plant,2026-03-01,2026-03-31,electricity,19450,kWh,MTR-1006,TSSPDCL,EB-20026,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0027,FAC-007,Pune Office,2026-03-01,2026-03-31,electricity,11040,kWh,MTR-1007,MSEDCL,EB-20027,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0028,FAC-008,Ahmedabad Depot,2026-03-01,2026-03-31,electricity,15610,kWh,MTR-1008,UGVCL,EB-20028,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0029,FAC-009,Jaipur Center,2026-03-01,2026-03-31,electricity,13470,kWh,MTR-1009,JVVNL,EB-20029,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0030,FAC-010,Lucknow Facility,2026-03-01,2026-03-31,electricity,17790,kWh,MTR-1010,UPPCL,EB-20030,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0031,FAC-001,Delhi Plant,2026-04-01,2026-04-30,electricity,19110,kWh,MTR-1001,Tata Power,EB-20031,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0032,FAC-002,Mumbai Office,2026-04-01,2026-04-30,electricity,13340,kWh,MTR-1002,Adani Electricity,EB-20032,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0033,FAC-003,Bengaluru Hub,2026-04-01,2026-04-30,electricity,14980,kWh,MTR-1003,BESCOM,EB-20033,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0034,FAC-004,Chennai Warehouse,2026-04-01,2026-04-30,electricity,17420,kWh,MTR-1004,TANGEDCO,EB-20034,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0035,FAC-005,Kolkata Branch,2026-04-01,2026-04-30,electricity,12460,kWh,MTR-1005,CESC,EB-20035,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0036,FAC-006,Hyderabad Plant,2026-04-01,2026-04-30,electricity,19830,kWh,MTR-1006,TSSPDCL,EB-20036,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0037,FAC-007,Pune Office,2026-04-01,2026-04-30,electricity,11390,kWh,MTR-1007,MSEDCL,EB-20037,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0038,FAC-008,Ahmedabad Depot,2026-04-01,2026-04-30,electricity,15920,kWh,MTR-1008,UGVCL,EB-20038,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0039,FAC-009,Jaipur Center,2026-04-01,2026-04-30,electricity,13880,kWh,MTR-1009,JVVNL,EB-20039,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0040,FAC-010,Lucknow Facility,2026-04-01,2026-04-30,electricity,18140,kWh,MTR-1010,UPPCL,EB-20040,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0041,FAC-001,Delhi Plant,2026-05-01,2026-05-31,electricity,19620,kWh,MTR-1001,Tata Power,EB-20041,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0042,FAC-002,Mumbai Office,2026-05-01,2026-05-31,electricity,13780,kWh,MTR-1002,Adani Electricity,EB-20042,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0043,FAC-003,Bengaluru Hub,2026-05-01,2026-05-31,electricity,15360,kWh,MTR-1003,BESCOM,EB-20043,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0044,FAC-004,Chennai Warehouse,2026-05-01,2026-05-31,electricity,17870,kWh,MTR-1004,TANGEDCO,EB-20044,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0045,FAC-005,Kolkata Branch,2026-05-01,2026-05-31,electricity,12790,kWh,MTR-1005,CESC,EB-20045,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0046,FAC-006,Hyderabad Plant,2026-05-01,2026-05-31,electricity,20310,kWh,MTR-1006,TSSPDCL,EB-20046,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0047,FAC-007,Pune Office,2026-05-01,2026-05-31,electricity,11720,kWh,MTR-1007,MSEDCL,EB-20047,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0048,FAC-008,Ahmedabad Depot,2026-05-01,2026-05-31,electricity,16280,kWh,MTR-1008,UGVCL,EB-20048,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0049,FAC-009,Jaipur Center,2026-05-01,2026-05-31,electricity,14230,kWh,MTR-1009,JVVNL,EB-20049,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0050,FAC-010,Lucknow Facility,2026-05-01,2026-05-31,electricity,18590,kWh,MTR-1010,UPPCL,EB-20050,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0051,FAC-001,Delhi Plant,2026-06-01,2026-06-30,electricity,20140,kWh,MTR-1001,Tata Power,EB-20051,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0052,FAC-002,Mumbai Office,2026-06-01,2026-06-30,electricity,14190,kWh,MTR-1002,Adani Electricity,EB-20052,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0053,FAC-003,Bengaluru Hub,2026-06-01,2026-06-30,electricity,15790,kWh,MTR-1003,BESCOM,EB-20053,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0054,FAC-004,Chennai Warehouse,2026-06-01,2026-06-30,electricity,18220,kWh,MTR-1004,TANGEDCO,EB-20054,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0055,FAC-005,Kolkata Branch,2026-06-01,2026-06-30,electricity,13110,kWh,MTR-1005,CESC,EB-20055,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0056,FAC-006,Hyderabad Plant,2026-06-01,2026-06-30,electricity,20760,kWh,MTR-1006,TSSPDCL,EB-20056,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0057,FAC-007,Pune Office,2026-06-01,2026-06-30,electricity,12090,kWh,MTR-1007,MSEDCL,EB-20057,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0058,FAC-008,Ahmedabad Depot,2026-06-01,2026-06-30,electricity,16610,kWh,MTR-1008,UGVCL,EB-20058,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0059,FAC-009,Jaipur Center,2026-06-01,2026-06-30,electricity,14590,kWh,MTR-1009,JVVNL,EB-20059,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0060,FAC-010,Lucknow Facility,2026-06-01,2026-06-30,electricity,19020,kWh,MTR-1010,UPPCL,EB-20060,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0061,FAC-001,Delhi Plant,2026-07-01,2026-07-31,electricity,20630,kWh,MTR-1001,Tata Power,EB-20061,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0062,FAC-002,Mumbai Office,2026-07-01,2026-07-31,electricity,14540,kWh,MTR-1002,Adani Electricity,EB-20062,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0063,FAC-003,Bengaluru Hub,2026-07-01,2026-07-31,electricity,16120,kWh,MTR-1003,BESCOM,EB-20063,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0064,FAC-004,Chennai Warehouse,2026-07-01,2026-07-31,electricity,18680,kWh,MTR-1004,TANGEDCO,EB-20064,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0065,FAC-005,Kolkata Branch,2026-07-01,2026-07-31,electricity,13440,kWh,MTR-1005,CESC,EB-20065,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0066,FAC-006,Hyderabad Plant,2026-07-01,2026-07-31,electricity,21230,kWh,MTR-1006,TSSPDCL,EB-20066,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0067,FAC-007,Pune Office,2026-07-01,2026-07-31,electricity,12430,kWh,MTR-1007,MSEDCL,EB-20067,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0068,FAC-008,Ahmedabad Depot,2026-07-01,2026-07-31,electricity,16970,kWh,MTR-1008,UGVCL,EB-20068,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0069,FAC-009,Jaipur Center,2026-07-01,2026-07-31,electricity,14970,kWh,MTR-1009,JVVNL,EB-20069,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0070,FAC-010,Lucknow Facility,2026-07-01,2026-07-31,electricity,19460,kWh,MTR-1010,UPPCL,EB-20070,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0071,FAC-001,Delhi Plant,2026-08-01,2026-08-31,electricity,20480,kWh,MTR-1001,Tata Power,EB-20071,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0072,FAC-002,Mumbai Office,2026-08-01,2026-08-31,electricity,14390,kWh,MTR-1002,Adani Electricity,EB-20072,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0073,FAC-003,Bengaluru Hub,2026-08-01,2026-08-31,electricity,15980,kWh,MTR-1003,BESCOM,EB-20073,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0074,FAC-004,Chennai Warehouse,2026-08-01,2026-08-31,electricity,18490,kWh,MTR-1004,TANGEDCO,EB-20074,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0075,FAC-005,Kolkata Branch,2026-08-01,2026-08-31,electricity,13320,kWh,MTR-1005,CESC,EB-20075,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0076,FAC-006,Hyderabad Plant,2026-08-01,2026-08-31,electricity,21080,kWh,MTR-1006,TSSPDCL,EB-20076,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0077,FAC-007,Pune Office,2026-08-01,2026-08-31,electricity,12310,kWh,MTR-1007,MSEDCL,EB-20077,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0078,FAC-008,Ahmedabad Depot,2026-08-01,2026-08-31,electricity,16840,kWh,MTR-1008,UGVCL,EB-20078,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0079,FAC-009,Jaipur Center,2026-08-01,2026-08-31,electricity,14810,kWh,MTR-1009,JVVNL,EB-20079,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0080,FAC-010,Lucknow Facility,2026-08-01,2026-08-31,electricity,19290,kWh,MTR-1010,UPPCL,EB-20080,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0081,FAC-001,Delhi Plant,2026-09-01,2026-09-30,electricity,19890,kWh,MTR-1001,Tata Power,EB-20081,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0082,FAC-002,Mumbai Office,2026-09-01,2026-09-30,electricity,13980,kWh,MTR-1002,Adani Electricity,EB-20082,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0083,FAC-003,Bengaluru Hub,2026-09-01,2026-09-30,electricity,15420,kWh,MTR-1003,BESCOM,EB-20083,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0084,FAC-004,Chennai Warehouse,2026-09-01,2026-09-30,electricity,17960,kWh,MTR-1004,TANGEDCO,EB-20084,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0085,FAC-005,Kolkata Branch,2026-09-01,2026-09-30,electricity,12960,kWh,MTR-1005,CESC,EB-20085,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0086,FAC-006,Hyderabad Plant,2026-09-01,2026-09-30,electricity,20520,kWh,MTR-1006,TSSPDCL,EB-20086,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0087,FAC-007,Pune Office,2026-09-01,2026-09-30,electricity,11980,kWh,MTR-1007,MSEDCL,EB-20087,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0088,FAC-008,Ahmedabad Depot,2026-09-01,2026-09-30,electricity,16330,kWh,MTR-1008,UGVCL,EB-20088,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0089,FAC-009,Jaipur Center,2026-09-01,2026-09-30,electricity,14410,kWh,MTR-1009,JVVNL,EB-20089,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0090,FAC-010,Lucknow Facility,2026-09-01,2026-09-30,electricity,18730,kWh,MTR-1010,UPPCL,EB-20090,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage
+S2-0091,FAC-001,Delhi Plant,2026-10-01,2026-10-31,electricity,19070,kWh,MTR-1001,Tata Power,EB-20091,India Grid,India,Delhi,standard_grid,Monthly electricity bill
+S2-0092,FAC-002,Mumbai Office,2026-10-01,2026-10-31,electricity,13490,kWh,MTR-1002,Adani Electricity,EB-20092,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0093,FAC-003,Bengaluru Hub,2026-10-01,2026-10-31,electricity,14860,kWh,MTR-1003,BESCOM,EB-20093,India Grid,India,Karnataka,standard_grid,Monthly electricity bill
+S2-0094,FAC-004,Chennai Warehouse,2026-10-01,2026-10-31,electricity,17310,kWh,MTR-1004,TANGEDCO,EB-20094,India Grid,India,Tamil Nadu,standard_grid,Warehouse electricity consumption
+S2-0095,FAC-005,Kolkata Branch,2026-10-01,2026-10-31,electricity,12580,kWh,MTR-1005,CESC,EB-20095,India Grid,India,West Bengal,standard_grid,Monthly electricity bill
+S2-0096,FAC-006,Hyderabad Plant,2026-10-01,2026-10-31,electricity,19870,kWh,MTR-1006,TSSPDCL,EB-20096,India Grid,India,Telangana,green_tariff,Plant electricity usage
+S2-0097,FAC-007,Pune Office,2026-10-01,2026-10-31,electricity,11540,kWh,MTR-1007,MSEDCL,EB-20097,India Grid,India,Maharashtra,standard_grid,Office electricity consumption
+S2-0098,FAC-008,Ahmedabad Depot,2026-10-01,2026-10-31,electricity,15780,kWh,MTR-1008,UGVCL,EB-20098,India Grid,India,Gujarat,standard_grid,Depot electricity bill
+S2-0099,FAC-009,Jaipur Center,2026-10-01,2026-10-31,electricity,13920,kWh,MTR-1009,JVVNL,EB-20099,India Grid,India,Rajasthan,standard_grid,Monthly electricity bill
+S2-0100,FAC-010,Lucknow Facility,2026-10-01,2026-10-31,electricity,18180,kWh,MTR-1010,UPPCL,EB-20100,India Grid,India,Uttar Pradesh,standard_grid,Facility electricity usage

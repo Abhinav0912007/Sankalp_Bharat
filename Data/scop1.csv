@@ -1,0 +1,101 @@
+record_id,facility_id,facility_name,date,source_type,fuel_type,quantity,unit,supplier_name,invoice_number,asset_id,country,state,notes
+S1-0001,FAC-001,Delhi Plant,2026-01-03,generator,diesel,420,liter,Indian Oil,INV-10001,GEN-01,India,Delhi,Monthly generator refill
+S1-0002,FAC-002,Mumbai Office,2026-01-04,boiler,lpg,180,kg,Bharat Petroleum,INV-10002,BLR-01,India,Maharashtra,Boiler fuel purchase
+S1-0003,FAC-003,Bengaluru Hub,2026-01-05,vehicle,petrol,95,liter,Hindustan Petroleum,INV-10003,VEH-01,India,Karnataka,Company sedan refuel
+S1-0004,FAC-004,Chennai Warehouse,2026-01-06,generator,diesel,510,liter,Indian Oil,INV-10004,GEN-02,India,Tamil Nadu,Backup power usage
+S1-0005,FAC-005,Kolkata Branch,2026-01-07,boiler,natural_gas,320,Nm3,GAIL,INV-10005,BLR-02,India,West Bengal,Heating system consumption
+S1-0006,FAC-006,Hyderabad Plant,2026-01-08,vehicle,diesel,140,liter,Bharat Petroleum,INV-10006,VEH-02,India,Telangana,Delivery van refuel
+S1-0007,FAC-007,Pune Office,2026-01-09,generator,diesel,390,liter,Indian Oil,INV-10007,GEN-03,India,Maharashtra,Monthly generator refill
+S1-0008,FAC-008,Ahmedabad Depot,2026-01-10,boiler,lpg,210,kg,Hindustan Petroleum,INV-10008,BLR-03,India,Gujarat,Boiler fuel purchase
+S1-0009,FAC-009,Jaipur Center,2026-01-11,vehicle,petrol,88,liter,Indian Oil,INV-10009,VEH-03,India,Rajasthan,Field vehicle refuel
+S1-0010,FAC-010,Lucknow Facility,2026-01-12,generator,diesel,460,liter,Bharat Petroleum,INV-10010,GEN-04,India,Uttar Pradesh,Backup power usage
+S1-0011,FAC-001,Delhi Plant,2026-01-13,boiler,natural_gas,345,Nm3,GAIL,INV-10011,BLR-04,India,Delhi,Steam generation
+S1-0012,FAC-002,Mumbai Office,2026-01-14,vehicle,petrol,76,liter,Hindustan Petroleum,INV-10012,VEH-04,India,Maharashtra,Pool car refuel
+S1-0013,FAC-003,Bengaluru Hub,2026-01-15,generator,diesel,405,liter,Indian Oil,INV-10013,GEN-05,India,Karnataka,Monthly generator refill
+S1-0014,FAC-004,Chennai Warehouse,2026-01-16,boiler,lpg,195,kg,Bharat Petroleum,INV-10014,BLR-05,India,Tamil Nadu,Boiler fuel purchase
+S1-0015,FAC-005,Kolkata Branch,2026-01-17,vehicle,diesel,125,liter,Indian Oil,INV-10015,VEH-05,India,West Bengal,Service vehicle refuel
+S1-0016,FAC-006,Hyderabad Plant,2026-01-18,generator,diesel,530,liter,Hindustan Petroleum,INV-10016,GEN-06,India,Telangana,Backup power usage
+S1-0017,FAC-007,Pune Office,2026-01-19,boiler,natural_gas,298,Nm3,GAIL,INV-10017,BLR-06,India,Maharashtra,Heating system consumption
+S1-0018,FAC-008,Ahmedabad Depot,2026-01-20,vehicle,petrol,91,liter,Bharat Petroleum,INV-10018,VEH-06,India,Gujarat,Company hatchback refuel
+S1-0019,FAC-009,Jaipur Center,2026-01-21,generator,diesel,470,liter,Indian Oil,INV-10019,GEN-07,India,Rajasthan,Monthly generator refill
+S1-0020,FAC-010,Lucknow Facility,2026-01-22,boiler,lpg,205,kg,Hindustan Petroleum,INV-10020,BLR-07,India,Uttar Pradesh,Boiler fuel purchase
+S1-0021,FAC-001,Delhi Plant,2026-02-01,vehicle,diesel,132,liter,Bharat Petroleum,INV-10021,VEH-07,India,Delhi,Delivery truck refuel
+S1-0022,FAC-002,Mumbai Office,2026-02-02,generator,diesel,415,liter,Indian Oil,INV-10022,GEN-08,India,Maharashtra,Monthly generator refill
+S1-0023,FAC-003,Bengaluru Hub,2026-02-03,boiler,lpg,188,kg,Hindustan Petroleum,INV-10023,BLR-08,India,Karnataka,Boiler fuel purchase
+S1-0024,FAC-004,Chennai Warehouse,2026-02-04,vehicle,petrol,83,liter,Indian Oil,INV-10024,VEH-08,India,Tamil Nadu,Staff transport vehicle
+S1-0025,FAC-005,Kolkata Branch,2026-02-05,generator,diesel,495,liter,Bharat Petroleum,INV-10025,GEN-09,India,West Bengal,Backup power usage
+S1-0026,FAC-006,Hyderabad Plant,2026-02-06,boiler,natural_gas,336,Nm3,GAIL,INV-10026,BLR-09,India,Telangana,Steam generation
+S1-0027,FAC-007,Pune Office,2026-02-07,vehicle,petrol,74,liter,Hindustan Petroleum,INV-10027,VEH-09,India,Maharashtra,Pool car refuel
+S1-0028,FAC-008,Ahmedabad Depot,2026-02-08,generator,diesel,445,liter,Indian Oil,INV-10028,GEN-10,India,Gujarat,Monthly generator refill
+S1-0029,FAC-009,Jaipur Center,2026-02-09,boiler,lpg,215,kg,Bharat Petroleum,INV-10029,BLR-10,India,Rajasthan,Boiler fuel purchase
+S1-0030,FAC-010,Lucknow Facility,2026-02-10,vehicle,diesel,118,liter,Indian Oil,INV-10030,VEH-10,India,Uttar Pradesh,Service van refuel
+S1-0031,FAC-001,Delhi Plant,2026-02-11,generator,diesel,438,liter,Hindustan Petroleum,INV-10031,GEN-11,India,Delhi,Backup power usage
+S1-0032,FAC-002,Mumbai Office,2026-02-12,boiler,natural_gas,310,Nm3,GAIL,INV-10032,BLR-11,India,Maharashtra,Heating system consumption
+S1-0033,FAC-003,Bengaluru Hub,2026-02-13,vehicle,petrol,96,liter,Bharat Petroleum,INV-10033,VEH-11,India,Karnataka,Company sedan refuel
+S1-0034,FAC-004,Chennai Warehouse,2026-02-14,generator,diesel,505,liter,Indian Oil,INV-10034,GEN-12,India,Tamil Nadu,Monthly generator refill
+S1-0035,FAC-005,Kolkata Branch,2026-02-15,boiler,lpg,192,kg,Hindustan Petroleum,INV-10035,BLR-12,India,West Bengal,Boiler fuel purchase
+S1-0036,FAC-006,Hyderabad Plant,2026-02-16,vehicle,diesel,146,liter,Bharat Petroleum,INV-10036,VEH-12,India,Telangana,Delivery truck refuel
+S1-0037,FAC-007,Pune Office,2026-02-17,generator,diesel,402,liter,Indian Oil,INV-10037,GEN-13,India,Maharashtra,Backup power usage
+S1-0038,FAC-008,Ahmedabad Depot,2026-02-18,boiler,natural_gas,287,Nm3,GAIL,INV-10038,BLR-13,India,Gujarat,Steam generation
+S1-0039,FAC-009,Jaipur Center,2026-02-19,vehicle,petrol,79,liter,Hindustan Petroleum,INV-10039,VEH-13,India,Rajasthan,Field vehicle refuel
+S1-0040,FAC-010,Lucknow Facility,2026-02-20,generator,diesel,472,liter,Indian Oil,INV-10040,GEN-14,India,Uttar Pradesh,Monthly generator refill
+S1-0041,FAC-001,Delhi Plant,2026-03-01,boiler,lpg,225,kg,Bharat Petroleum,INV-10041,BLR-14,India,Delhi,Boiler fuel purchase
+S1-0042,FAC-002,Mumbai Office,2026-03-02,vehicle,petrol,81,liter,Indian Oil,INV-10042,VEH-14,India,Maharashtra,Pool car refuel
+S1-0043,FAC-003,Bengaluru Hub,2026-03-03,generator,diesel,418,liter,Hindustan Petroleum,INV-10043,GEN-15,India,Karnataka,Backup power usage
+S1-0044,FAC-004,Chennai Warehouse,2026-03-04,boiler,natural_gas,340,Nm3,GAIL,INV-10044,BLR-15,India,Tamil Nadu,Heating system consumption
+S1-0045,FAC-005,Kolkata Branch,2026-03-05,vehicle,diesel,121,liter,Bharat Petroleum,INV-10045,VEH-15,India,West Bengal,Service vehicle refuel
+S1-0046,FAC-006,Hyderabad Plant,2026-03-06,generator,diesel,522,liter,Indian Oil,INV-10046,GEN-16,India,Telangana,Monthly generator refill
+S1-0047,FAC-007,Pune Office,2026-03-07,boiler,lpg,184,kg,Hindustan Petroleum,INV-10047,BLR-16,India,Maharashtra,Boiler fuel purchase
+S1-0048,FAC-008,Ahmedabad Depot,2026-03-08,vehicle,petrol,93,liter,Indian Oil,INV-10048,VEH-16,India,Gujarat,Company hatchback refuel
+S1-0049,FAC-009,Jaipur Center,2026-03-09,generator,diesel,463,liter,Bharat Petroleum,INV-10049,GEN-17,India,Rajasthan,Backup power usage
+S1-0050,FAC-010,Lucknow Facility,2026-03-10,boiler,natural_gas,301,Nm3,GAIL,INV-10050,BLR-17,India,Uttar Pradesh,Steam generation
+S1-0051,FAC-001,Delhi Plant,2026-03-11,vehicle,diesel,137,liter,Hindustan Petroleum,INV-10051,VEH-17,India,Delhi,Delivery van refuel
+S1-0052,FAC-002,Mumbai Office,2026-03-12,generator,diesel,408,liter,Indian Oil,INV-10052,GEN-18,India,Maharashtra,Monthly generator refill
+S1-0053,FAC-003,Bengaluru Hub,2026-03-13,boiler,lpg,199,kg,Bharat Petroleum,INV-10053,BLR-18,India,Karnataka,Boiler fuel purchase
+S1-0054,FAC-004,Chennai Warehouse,2026-03-14,vehicle,petrol,86,liter,Hindustan Petroleum,INV-10054,VEH-18,India,Tamil Nadu,Staff transport vehicle
+S1-0055,FAC-005,Kolkata Branch,2026-03-15,generator,diesel,489,liter,Indian Oil,INV-10055,GEN-19,India,West Bengal,Backup power usage
+S1-0056,FAC-006,Hyderabad Plant,2026-03-16,boiler,natural_gas,348,Nm3,GAIL,INV-10056,BLR-19,India,Telangana,Steam generation
+S1-0057,FAC-007,Pune Office,2026-03-17,vehicle,petrol,77,liter,Bharat Petroleum,INV-10057,VEH-19,India,Maharashtra,Pool car refuel
+S1-0058,FAC-008,Ahmedabad Depot,2026-03-18,generator,diesel,451,liter,Indian Oil,INV-10058,GEN-20,India,Gujarat,Monthly generator refill
+S1-0059,FAC-009,Jaipur Center,2026-03-19,boiler,lpg,208,kg,Hindustan Petroleum,INV-10059,BLR-20,India,Rajasthan,Boiler fuel purchase
+S1-0060,FAC-010,Lucknow Facility,2026-03-20,vehicle,diesel,124,liter,Indian Oil,INV-10060,VEH-20,India,Uttar Pradesh,Service van refuel
+S1-0061,FAC-001,Delhi Plant,2026-04-01,generator,diesel,432,liter,Bharat Petroleum,INV-10061,GEN-21,India,Delhi,Monthly generator refill
+S1-0062,FAC-002,Mumbai Office,2026-04-02,boiler,natural_gas,315,Nm3,GAIL,INV-10062,BLR-21,India,Maharashtra,Heating system consumption
+S1-0063,FAC-003,Bengaluru Hub,2026-04-03,vehicle,petrol,94,liter,Indian Oil,INV-10063,VEH-21,India,Karnataka,Company sedan refuel
+S1-0064,FAC-004,Chennai Warehouse,2026-04-04,generator,diesel,517,liter,Hindustan Petroleum,INV-10064,GEN-22,India,Tamil Nadu,Backup power usage
+S1-0065,FAC-005,Kolkata Branch,2026-04-05,boiler,lpg,191,kg,Bharat Petroleum,INV-10065,BLR-22,India,West Bengal,Boiler fuel purchase
+S1-0066,FAC-006,Hyderabad Plant,2026-04-06,vehicle,diesel,149,liter,Indian Oil,INV-10066,VEH-22,India,Telangana,Delivery truck refuel
+S1-0067,FAC-007,Pune Office,2026-04-07,generator,diesel,399,liter,Hindustan Petroleum,INV-10067,GEN-23,India,Maharashtra,Monthly generator refill
+S1-0068,FAC-008,Ahmedabad Depot,2026-04-08,boiler,natural_gas,292,Nm3,GAIL,INV-10068,BLR-23,India,Gujarat,Steam generation
+S1-0069,FAC-009,Jaipur Center,2026-04-09,vehicle,petrol,82,liter,Bharat Petroleum,INV-10069,VEH-23,India,Rajasthan,Field vehicle refuel
+S1-0070,FAC-010,Lucknow Facility,2026-04-10,generator,diesel,478,liter,Indian Oil,INV-10070,GEN-24,India,Uttar Pradesh,Backup power usage
+S1-0071,FAC-001,Delhi Plant,2026-04-11,boiler,lpg,218,kg,Hindustan Petroleum,INV-10071,BLR-24,India,Delhi,Boiler fuel purchase
+S1-0072,FAC-002,Mumbai Office,2026-04-12,vehicle,petrol,75,liter,Indian Oil,INV-10072,VEH-24,India,Maharashtra,Pool car refuel
+S1-0073,FAC-003,Bengaluru Hub,2026-04-13,generator,diesel,411,liter,Bharat Petroleum,INV-10073,GEN-25,India,Karnataka,Monthly generator refill
+S1-0074,FAC-004,Chennai Warehouse,2026-04-14,boiler,natural_gas,338,Nm3,GAIL,INV-10074,BLR-25,India,Tamil Nadu,Heating system consumption
+S1-0075,FAC-005,Kolkata Branch,2026-04-15,vehicle,diesel,127,liter,Hindustan Petroleum,INV-10075,VEH-25,India,West Bengal,Service vehicle refuel
+S1-0076,FAC-006,Hyderabad Plant,2026-04-16,generator,diesel,526,liter,Indian Oil,INV-10076,GEN-26,India,Telangana,Backup power usage
+S1-0077,FAC-007,Pune Office,2026-04-17,boiler,lpg,186,kg,Bharat Petroleum,INV-10077,BLR-26,India,Maharashtra,Boiler fuel purchase
+S1-0078,FAC-008,Ahmedabad Depot,2026-04-18,vehicle,petrol,90,liter,Indian Oil,INV-10078,VEH-26,India,Gujarat,Company hatchback refuel
+S1-0079,FAC-009,Jaipur Center,2026-04-19,generator,diesel,466,liter,Hindustan Petroleum,INV-10079,GEN-27,India,Rajasthan,Monthly generator refill
+S1-0080,FAC-010,Lucknow Facility,2026-04-20,boiler,natural_gas,306,Nm3,GAIL,INV-10080,BLR-27,India,Uttar Pradesh,Steam generation
+S1-0081,FAC-001,Delhi Plant,2026-05-01,vehicle,diesel,134,liter,Bharat Petroleum,INV-10081,VEH-27,India,Delhi,Delivery van refuel
+S1-0082,FAC-002,Mumbai Office,2026-05-02,generator,diesel,421,liter,Indian Oil,INV-10082,GEN-28,India,Maharashtra,Monthly generator refill
+S1-0083,FAC-003,Bengaluru Hub,2026-05-03,boiler,lpg,203,kg,Hindustan Petroleum,INV-10083,BLR-28,India,Karnataka,Boiler fuel purchase
+S1-0084,FAC-004,Chennai Warehouse,2026-05-04,vehicle,petrol,84,liter,Indian Oil,INV-10084,VEH-28,India,Tamil Nadu,Staff transport vehicle
+S1-0085,FAC-005,Kolkata Branch,2026-05-05,generator,diesel,492,liter,Bharat Petroleum,INV-10085,GEN-29,India,West Bengal,Backup power usage
+S1-0086,FAC-006,Hyderabad Plant,2026-05-06,boiler,natural_gas,344,Nm3,GAIL,INV-10086,BLR-29,India,Telangana,Steam generation
+S1-0087,FAC-007,Pune Office,2026-05-07,vehicle,petrol,78,liter,Hindustan Petroleum,INV-10087,VEH-29,India,Maharashtra,Pool car refuel
+S1-0088,FAC-008,Ahmedabad Depot,2026-05-08,generator,diesel,447,liter,Indian Oil,INV-10088,GEN-30,India,Gujarat,Monthly generator refill
+S1-0089,FAC-009,Jaipur Center,2026-05-09,boiler,lpg,212,kg,Bharat Petroleum,INV-10089,BLR-30,India,Rajasthan,Boiler fuel purchase
+S1-0090,FAC-010,Lucknow Facility,2026-05-10,vehicle,diesel,120,liter,Indian Oil,INV-10090,VEH-30,India,Uttar Pradesh,Service van refuel
+S1-0091,FAC-001,Delhi Plant,2026-05-11,generator,diesel,436,liter,Hindustan Petroleum,INV-10091,GEN-31,India,Delhi,Backup power usage
+S1-0092,FAC-002,Mumbai Office,2026-05-12,boiler,natural_gas,312,Nm3,GAIL,INV-10092,BLR-31,India,Maharashtra,Heating system consumption
+S1-0093,FAC-003,Bengaluru Hub,2026-05-13,vehicle,petrol,97,liter,Bharat Petroleum,INV-10093,VEH-31,India,Karnataka,Company sedan refuel
+S1-0094,FAC-004,Chennai Warehouse,2026-05-14,generator,diesel,508,liter,Indian Oil,INV-10094,GEN-32,India,Tamil Nadu,Monthly generator refill
+S1-0095,FAC-005,Kolkata Branch,2026-05-15,boiler,lpg,194,kg,Hindustan Petroleum,INV-10095,BLR-32,India,West Bengal,Boiler fuel purchase
+S1-0096,FAC-006,Hyderabad Plant,2026-05-16,vehicle,diesel,143,liter,Bharat Petroleum,INV-10096,VEH-32,India,Telangana,Delivery truck refuel
+S1-0097,FAC-007,Pune Office,2026-05-17,generator,diesel,404,liter,Indian Oil,INV-10097,GEN-33,India,Maharashtra,Backup power usage
+S1-0098,FAC-008,Ahmedabad Depot,2026-05-18,boiler,natural_gas,289,Nm3,GAIL,INV-10098,BLR-33,India,Gujarat,Steam generation
+S1-0099,FAC-009,Jaipur Center,2026-05-19,vehicle,petrol,80,liter,Hindustan Petroleum,INV-10099,VEH-33,India,Rajasthan,Field vehicle refuel
+S1-0100,FAC-010,Lucknow Facility,2026-05-20,generator,diesel,474,liter,Indian Oil,INV-10100,GEN-34,India,Uttar Pradesh,Monthly generator refill
