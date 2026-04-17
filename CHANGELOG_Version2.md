@@ -1,35 +1,18 @@
 # Changelog
-## Digital Intelligent Platform for ESG Performance and GHG Monitoring
+## CarbonLens
 
-All notable changes to this project will be documented in this file.
-
----
+All notable documentation changes are tracked here.
 
 ## [Unreleased]
 
-### Added
-- Initial project documentation
-- PRD for ESG and GHG monitoring platform
-- Architecture document
-- Task plan
-- Test plan
-- Contribution guidelines
-- AI instructions
+### Updated
+- Unified the repo around the CarbonLens product direction
+- Simplified the MVP to operations/governance first
+- Kept AI as a supporting layer
+- Reduced Scope 3 expectations to a limited realistic flow
+- Removed OCR-first assumptions from MVP planning
 
-### Planned
-- Authentication and access control
-- Master data management
-- Activity data capture
-- Emissions calculation engine
-- Reporting dashboards
-- Supplier engagement workflows
-- Governance and audit logging
-- Scenario analysis
-
----
-
-## [0.1.0] - 2026-04-17
-### Added
-- Initial repository setup
-- Initial planning documents
-- MVP definition for ESG and GHG monitoring platform
+### Cleaned Up
+- Removed duplicate README variants
+- Replaced conflicting oversized task and architecture assumptions
+- Aligned PRD, architecture, tasks, and work tracker with final product scope

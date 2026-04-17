@@ -1,22 +1,40 @@
-# CarbonLens - Work Done Tracker (Team Tracking)
+# CarbonLens Work Done Tracker
 
-This document tracks the strategic updates and project environment status.
+This document tracks the cleaned and current project direction.
 
-## Completed Tasks
+## Completed
 
-* **[2026-04-17]** Generated all core planning documents: `PRD.md`, `ARCHITECTURE_Version2.md`, `CRD.md`, `TASKS_Version2.md` and `implementation-pan.md`.
-* **[2026-04-17]** Finalized Team Allocation allocating 6 members explicitly across Backend and Frontend tasks (Sameera, Sahiti, Jiya, Atharva, Sparsh, Harsh).
-* **[2026-04-17]** Upgraded MVP scope to include OCR processing (Images/PDFs) and massive Scope 3 modeling immediately at Phase 1.
-* **[2026-04-17]** Flushed earlier mock boilerplate code repositories (`frontend` and `backend` directories) to establish a clean slate.
+- Finalized product identity as a smart ESG control tower for manufacturing SMEs
+- Locked the product positioning to operations and governance first
+- Kept AI as a supporting layer rather than the system core
+- Restricted Scope 3 to a limited and realistic MVP
+- Created and aligned the main project docs around CarbonLens
+- Cleaned conflicting documentation that had pushed OCR-heavy and oversized MVP scope
+- Updated README, idea, CRD, PRD, architecture, task plan, and pitch notes for one consistent story
 
-## In Progress
+## Current Status
 
-* *(No development tasks have started yet)*
+- Documentation is aligned
+- Product direction is stable
+- Ready for implementation planning or scaffolding
 
-## Outstanding Phases
+## Removed or Simplified
 
-Work is fully scoped and ready. Once teams check out their feature branches, they will commence in parallel across the 4 designated phases:
-* **Phase 1: Core Engine, Multi-Format Ingestion & Scope 3 Evaluation**
-* **Phase 2: Auth, Governance & Supplier Flow**
-* **Phase 3: Dashboard & Analytics**
-* **Phase 4: Scenarios, Reporting & Polish**
+- OCR-first ingestion assumptions from MVP scope
+- Massive Scope 3 expectations from early planning
+- Overly enterprise-heavy branch/task structure
+- Duplicate README variants not needed for the project
+
+## Next Recommended Work
+
+1. Finalize the canonical tech stack in docs
+2. Create implementation scaffolding
+3. Seed demo data
+4. Build core flows in this order:
+   - auth
+   - data entry/upload
+   - calculation engine
+   - dashboard
+   - governance
+   - report summary
+   - AI-smart summary layer

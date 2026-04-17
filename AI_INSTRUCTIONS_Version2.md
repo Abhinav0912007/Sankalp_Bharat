@@ -1,136 +1,61 @@
 # AI Instructions
-## Digital Intelligent Platform for ESG Performance and GHG Monitoring
+## CarbonLens
 
-**Version:** 1.0  
-**Status:** Draft  
+**Version:** 2.0  
+**Status:** Active  
 **Last Updated:** 2026-04-17
 
 ---
 
 ## 1. Purpose
 
-This file provides instructions for AI-assisted development in this project.  
-The goal is to ensure that AI changes remain accurate, consistent, and aligned with the product scope.
+This file defines how AI-assisted development should behave for CarbonLens.
 
 ---
 
-## 2. Core Rules for AI
+## 2. Core Rules
 
-### 2.1 Follow the Documents
-Before generating or modifying code, always follow:
-- `README.md`
+### 2.1 Follow The Current Documents
+Before generating or modifying code, follow:
+- `readme.md`
 - `PRD.md`
-- `ARCHITECTURE.md`
-- `TASKS.md`
-- `DECISIONS.md` if present
-- `TEST_PLAN.md`
+- `CRD.md`
+- `ARCHITECTURE_Version2.md`
+- `TASKS_Version2.md`
+- `TEST_PLAN_Version2.md`
+- `rules.md`
 
-### 2.2 Do Not Invent Requirements
-- Do not add features that are not in the PRD or approved backlog
-- Do not change business rules without explicit instruction
-- Do not assume reporting standards, calculations, or workflows unless specified
+### 2.2 Do Not Invent Scope
+- Do not add OCR ingestion to MVP
+- Do not expand Scope 3 beyond the agreed limited set
+- Do not make AI the source of truth
+- Do not add enterprise-heavy workflows unless explicitly requested
 
-### 2.3 Keep the Solution Feasible
-- Prefer simple, reliable architecture
-- Avoid overengineering
-- Build the MVP first
-- Use modular design so future expansion is easy
-
-### 2.4 Preserve Data Integrity
-- Always protect auditability
-- Never remove traceability fields
-- Keep historical records when calculations change
-- Ensure reports can be traced back to source data
+### 2.3 Keep The Product Practical
+- Prefer simple and buildable architecture
+- Preserve the manufacturing SME focus
+- Keep operations and governance as the product core
 
 ---
 
-## 3. Implementation Behavior
+## 3. Project-Specific Constraints
 
-### 3.1 When Creating Code
-- Start with the smallest useful unit
-- Prefer clear and maintainable code
-- Separate business logic, data access, and UI
-- Add validation for user input
-- Include logging where it helps traceability
-
-### 3.2 When Modifying Code
-- Do not break existing workflows
-- Keep changes localized
-- Update tests if behavior changes
-- Update docs if structure or logic changes
-
-### 3.3 When Unsure
-- Ask for clarification
-- Do not guess on critical business rules
-- Do not silently choose values for emissions logic, scopes, or approvals
+- Calculations must be deterministic and traceable
+- AI may summarize, explain, or recommend only after real metrics exist
+- Validation and governance must remain visible
+- Supplier workflow must stay lightweight
+- Reporting must be concise and demo-friendly
 
 ---
 
-## 4. Project-Specific AI Constraints
+## 4. Preferred Development Order
 
-The AI must always respect these constraints:
-
-- ESG and GHG calculations must be traceable
-- Scope 1, Scope 2, and selected Scope 3 should be handled separately
-- Emission factors must be versioned
-- Report outputs must match approved data only
-- Supplier submissions must remain auditable
-- Workflow states must be explicit
-- Governance and approval logic must remain visible
-- Scenario analysis should be simple in MVP
-
----
-
-## 5. Preferred Development Order
-
-AI should implement the project in this order:
-
-1. Project structure and setup
-2. Authentication and roles
-3. Master data entities
-4. Activity capture
-5. Validation and audit logging
-6. Emissions calculation engine
-7. Dashboards and reporting
-8. Supplier workflows
-9. Governance and approvals
-10. Scenario analysis
-11. Testing and hardening
-
----
-
-## 6. Output Expectations
-
-When AI generates code or documentation:
-- Keep output consistent with the existing architecture
-- Use clear file names
-- Avoid duplicate files or duplicated logic
-- Include tests where appropriate
-- Mention assumptions explicitly
-- Prefer practical implementation over theoretical completeness
-
----
-
-## 7. Prohibited Behavior
-
-AI should not:
-- Rewrite the entire project without instruction
-- Add unnecessary microservices
-- Ignore audit or reporting requirements
-- Create hidden business rules
-- Remove validation silently
-- Change scope without approval
-
----
-
-## 8. Definition of Good AI Output
-
-Good AI output for this project is:
-- Correct
-- Feasible
-- Traceable
-- Testable
-- Maintainable
-- Aligned with the PRD and architecture
-
----
+1. Setup and authentication
+2. Data model
+3. Data entry and upload
+4. Calculations
+5. Dashboard
+6. Supplier flow
+7. Governance and issues
+8. Report summary
+9. AI-smart summary layer

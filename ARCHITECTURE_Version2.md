@@ -1,26 +1,26 @@
 # Architecture Document
-## Digital Intelligent Platform for ESG Performance and GHG Monitoring
+## CarbonLens
 
-**Version:** 1.0  
-**Status:** Draft  
+**Version:** 2.0  
+**Status:** Active  
 **Last Updated:** 2026-04-17
 
 ---
 
 ## 1. Purpose
 
-This document defines the high-level architecture for a centralized ESG and GHG monitoring platform. The goal is to support accurate data capture, emissions calculation, auditability, reporting, governance, and scenario analysis.
+This document defines the high-level architecture for CarbonLens, a smart ESG control tower for manufacturing SMEs. The architecture is designed to stay simple enough for a hackathon MVP while remaining realistic and scalable.
 
 ---
 
 ## 2. Architecture Goals
 
-- Provide a single source of truth for ESG and emissions data
-- Support Scope 1, Scope 2, and selected Scope 3 emissions
-- Ensure traceability from report output back to source data
-- Enable role-based access and approval workflows
-- Support scalable growth across business units and suppliers
-- Produce assurance-ready reports with audit trails
+- Provide a single source of truth for ESG and GHG data
+- Support Scope 1, Scope 2, and limited Scope 3 emissions
+- Keep calculations deterministic and traceable
+- Make governance and issue ownership visible
+- Enable simple reporting and AI-smart summaries
+- Stay lightweight enough for rapid implementation
 
 ---
 
@@ -30,248 +30,151 @@ The platform is organized into the following layers:
 
 1. **Presentation Layer**
    - Web dashboard
-   - Supplier portal
-   - Admin console
-   - Executive reporting views
+   - Data upload and manual entry screens
+   - Supplier submission page
+   - Governance and reporting views
 
 2. **Application Layer**
-   - ESG data management
+   - Activity data management
    - Emissions calculation engine
-   - Supplier engagement workflows
-   - Validation and approval engine
-   - Reporting service
-   - Scenario analysis service
+   - Validation and issue engine
+   - Supplier submission workflow
+   - Reporting and AI summary service
 
 3. **Data Layer**
    - Relational database for structured ESG data
-   - File storage for evidence uploads and exported reports
-   - Audit log store
-   - Optional analytics warehouse for historical and aggregated data
+   - File storage for uploads and exports
 
-4. **Integration Layer**
-   - File Upload Parsers (Images OCR, PDFs, CSV, Excel)
-   - ERP/finance integration
-   - Utility or energy data feeds
-   - Supplier data submissions
-   - Authentication / SSO integration
-
-5. **Collaboration Layer**
-   - Individual Git branches dedicated out per-member (Sameera, Sahiti, Jiya, Atharva, Sparsh, Harsh).
-   - Strict avoidance of hardcoded data—all UI/Backend interactions must be strictly derived from the relational schema and multi-format payloads.
+4. **Supporting Layer**
+   - Authentication and role access
+   - Audit metadata
+   - Optional background processing for imports and reports
 
 ---
 
 ## 4. Recommended Technology Stack
 
-### Frontend
-- React or Next.js
+### App Layer
+- Next.js
 - TypeScript
-- Tailwind CSS or Material UI
-- Charting library such as Recharts or ECharts
 
-### Backend
-- Node.js with Express
-- TypeScript
-- REST APIs
-- **Data Extractor Modules**: Tesseract.js (or equivalent OCR) / PDF-Parse for reading uploaded documents and images.
+### UI Layer
+- Tailwind CSS
+- shadcn/ui
+- Recharts
 
-### Database
-- PostgreSQL
+### Data Layer
+- Supabase Postgres
+- Supabase Auth
+- Supabase Storage
 
-### Background Processing
-- Job queue or worker process for imports, calculations, and scheduled tasks
+### Validation and Logic
+- Zod for input validation
+- TypeScript service layer for emissions calculations
 
-### Storage
-- Object storage for evidence documents and exported files
+### AI Layer
+- OpenAI API for summaries and recommendations only
 
-### Infrastructure
-- Docker
-- Cloud deployment on AWS, Azure, or GCP
+### Deployment
+- Vercel for app hosting
+- Supabase for database, auth, and storage
 
 ---
 
 ## 5. Core Modules
 
-### 5.1 Identity and Access Management
+### 5.1 Identity and Access
 Responsibilities:
 - Authenticate users
-- Enforce role-based access control
-- Manage permissions by organization, business unit, and workflow role
+- Enforce role-based access
+- Separate admin, operations, supplier, and leadership views
 
 Roles:
-- Admin
 - Sustainability Manager
-- Data Contributor
-- Approver
-- Auditor
-- Executive Viewer
-- Supplier User
+- Operations/Admin
+- Supplier
+- Leadership Viewer
 
----
-
-### 5.2 Organization and Master Data Module
+### 5.2 Organization and Master Data
 Responsibilities:
-- Manage organizations, business units, facilities, and suppliers
-- Define reporting periods
-- Maintain metadata such as regions, sectors, and categories
+- Manage organizations, facilities, suppliers, and reporting periods
 
 Core entities:
 - Organization
-- BusinessUnit
-- Site/Facility
+- Facility
 - Supplier
 - ReportingPeriod
 
----
-
-### 5.3 ESG Activity Data Module
+### 5.3 Activity Data Module
 Responsibilities:
 - Capture raw activity data
-- Support manual entry and file import
-- Store evidence and source references
-- Track ownership and status
+- Support manual entry and CSV upload
+- Track source, owner, and status
 
-Examples of activity data:
+Examples:
 - Fuel consumption
 - Purchased electricity
-- Travel
+- Transport
 - Waste
-- Purchased goods and services
-- Supplier activity submissions
-
----
+- Supplier-submitted Scope 3 data
 
 ### 5.4 Emissions Calculation Engine
 Responsibilities:
-- Apply emission factors to activity data
-- Calculate Scope 1, 2, and selected Scope 3 emissions
-- Store calculation traces and versioned results
-- Recalculate when factors or source data change
+- Apply emission factors
+- Calculate Scope 1 and Scope 2 reliably
+- Support limited Scope 3 categories
+- Store calculated outputs and traces
 
-Key functions:
-- Calculation by scope
-- Calculation by category
-- Factor versioning
-- Unit conversion
-- Baseline comparison
-
----
-
-### 5.5 Scope 3 Supplier Engagement Module
+### 5.5 Supplier Module
 Responsibilities:
-- Prioritize suppliers by materiality
-- Send data requests
-- Track supplier response status
-- Score supplier data quality
-- Support review and validation of submissions
+- Track supplier requests and submissions
+- Support simple guided submission flow
+- Show status and completeness
 
-Supplier workflow:
-1. Identify priority suppliers
-2. Send request
-3. Receive submission
-4. Validate submission
-5. Accept or reject
-6. Follow up if incomplete
-
----
-
-### 5.6 Validation and Workflow Module
+### 5.6 Validation and Governance Module
 Responsibilities:
 - Validate required fields
-- Enforce numeric and logical checks
-- Flag anomalies
-- Support approvals and escalations
-- Track workflow states
-
-Workflow states:
-- Draft
-- Submitted
-- Under Review
-- Approved
-- Rejected
-- Reopened
-
----
+- Flag suspicious or incomplete records
+- Create assignable issues
+- Track resolution status
 
 ### 5.7 Reporting and Dashboard Module
 Responsibilities:
-- Show emissions trends
-- Display data completeness
-- Provide supplier status views
-- Generate management and board reports
-- Export PDF and Excel outputs
+- Show emissions summary and trends
+- Show issue and supplier status
+- Generate concise report-ready output
 
-Dashboard views:
-- Total emissions by scope
-- Emissions by facility/business unit
-- Scope 3 materiality summary
-- Data quality and completeness
-- Reporting status
-- Target progress
-
----
-
-### 5.8 Governance and Audit Module
+### 5.8 AI Insight Module
 Responsibilities:
-- Store immutable audit logs
-- Track record history
-- Log approvals and changes
-- Maintain evidence linkage
-- Support assurance and compliance review
+- Turn validated metrics into readable summaries
+- Suggest next actions
+- Explain major drivers and unresolved risks
 
-Audit events:
-- User login
-- Data creation
-- Data update
-- Calculation run
-- Approval action
-- Report generation
-- Factor change
-
----
-
-### 5.9 Scenario Analysis Module
-Responsibilities:
-- Compare baseline and target pathways
-- Model carbon pricing assumptions
-- Simulate reduction plans
-- Display impact on emissions and costs
-
-MVP scenario capabilities:
-- Rule-based projections
-- Simple what-if analysis
-- Carbon cost estimation
-- Target tracking
+Constraint:
+- AI does not calculate emissions
 
 ---
 
 ## 6. Data Architecture
 
 ### 6.1 Primary Database
-Use PostgreSQL for structured storage of:
+Use Postgres for structured storage of:
 - users
-- roles
 - organizations
+- facilities
 - activity records
 - emission factors
-- emission results
-- supplier records
-- workflows
+- calculations
+- suppliers
+- submissions
+- issues
 - reports
-- audit logs
 
-### 6.2 Object Storage
+### 6.2 Storage
 Store:
-- evidence files
-- uploaded spreadsheets
-- generated PDFs
-- report exports
-
-### 6.3 Analytics Layer
-Optional warehouse or materialized views for:
-- trend analysis
-- historical reporting
-- aggregated KPI dashboards
+- uploaded CSVs
+- exported reports
+- optional evidence files
 
 ---
 
@@ -279,138 +182,100 @@ Optional warehouse or materialized views for:
 
 ### Main Entities
 - User
-- Role
 - Organization
-- BusinessUnit
 - Facility
-- Supplier
-- ReportingPeriod
 - ActivityRecord
 - EmissionFactor
-- EmissionCalculation
-- Scope3Category
-- SupplierRequest
+- EmissionResult
+- Supplier
 - SupplierSubmission
-- Approval
-- AuditLog
+- Issue
 - Report
-- Scenario
 
 ### Relationships
-- An Organization has many Business Units
-- A Business Unit has many Facilities
-- A Facility has many Activity Records
-- Activity Records map to Emission Factors
-- Emission Calculations generate Emission Results
-- Suppliers submit data for Scope 3 categories
-- Reports compile calculated results and audit evidence
+- An organization has many facilities, suppliers, users, records, and reports
+- A facility has many activity records
+- Activity records map to emission factors
+- Suppliers submit limited Scope 3 data
+- Issues connect to records or submissions
 
 ---
 
 ## 8. API Architecture
 
-Recommended REST API groups:
+Recommended route groups:
 - `/auth`
-- `/users`
-- `/organizations`
-- `/business-units`
-- `/facilities`
+- `/dashboard`
+- `/records`
 - `/suppliers`
-- `/activities`
-- `/emissions`
-- `/factors`
+- `/issues`
 - `/reports`
-- `/audit`
-- `/workflows`
-- `/scenarios`
+- `/insights`
 
-API principles:
-- Versioned endpoints
-- Consistent request and response formats
-- Pagination and filtering
-- Role-based authorization
-- Traceable identifiers for calculations and reports
+Principles:
+- clean request and response formats
+- role-aware access
+- traceable identifiers
+- validation before write operations
 
 ---
 
 ## 9. Workflow Flows
 
 ### 9.1 Data Collection Flow
-1. User creates or imports activity data
+1. User uploads CSV or enters manual data
 2. System validates inputs
-3. Data is stored with metadata and evidence
-4. Approval is requested if required
-5. Approved data is sent to calculation engine
+3. Data is stored with metadata
+4. Issues are created if validation fails
+5. Valid records flow into calculation logic
 
 ### 9.2 Calculation Flow
-1. Select activity records for a reporting period
+1. Select activity records
 2. Retrieve matching emission factors
-3. Convert units if needed
-4. Calculate emissions
-5. Store result and calculation trace
-6. Refresh dashboards and reports
+3. Calculate emissions
+4. Store result and traceability metadata
+5. Refresh dashboards and reports
 
-### 9.3 Supplier Engagement Flow
-1. Identify high-impact suppliers
-2. Send data requests
-3. Collect submissions
-4. Validate completeness
-5. Escalate missing submissions
-6. Include approved supplier data in Scope 3 reporting
+### 9.3 Supplier Flow
+1. Request supplier input
+2. Supplier submits limited data
+3. System validates submission
+4. Validated data contributes to Scope 3 view
 
-### 9.4 Report Generation Flow
+### 9.4 Reporting Flow
 1. Select reporting period
-2. Gather validated data and calculations
-3. Compile charts, tables, and summary metrics
-4. Attach audit trail references
-5. Export report in required format
+2. Gather validated metrics
+3. Compile summary and charts
+4. Optionally generate AI summary text
+5. Display report-ready output
 
 ---
 
 ## 10. Security Architecture
 
-### Security Controls
-- Authentication via SSO or secure login
+- Secure login and session handling
 - Role-based authorization
-- Least-privilege access
-- Encrypted data in transit and at rest
-- Secure file upload validation
-- Audit logging for all sensitive actions
-
-### Data Protection
-- Mask or restrict sensitive supplier data where required
-- Separate permissions for editing and approving data
-- Protect report generation and export access
+- Validation on all write operations
+- Protected uploads
+- Traceability for changes affecting ESG data
 
 ---
 
 ## 11. Scalability Considerations
 
 The platform should scale through:
-- Modular services
-- Background jobs for heavy calculations and imports
-- Caching for dashboards
-- Partitioning or archiving for historical data
-- Asynchronous processing for report generation
+- modular service boundaries
+- Postgres-backed structured data
+- optional background processing for imports and reports
+- future expansion of Scope 3 categories
+- future multi-facility and multi-organization growth
 
 ---
 
 ## 12. Reliability and Traceability
 
-- Preserve all source data versions
-- Store calculation history
-- Keep report snapshots immutable after publication
-- Log every user action affecting ESG data
-- Support restoration of deleted or corrected records
-
----
-
-## 13. Non-Functional Requirements
-
-- High accuracy
-- Strong auditability
-- Fast reporting response
-- Secure access control
-- Modular design for future growth
-- Easy maintainability
--
+- Preserve source records
+- Store calculation metadata
+- Keep issue history visible
+- Keep report generation tied to validated data
+- Keep AI summaries downstream from trusted calculations
