@@ -955,6 +955,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   text-align: center;
   line-height: 1.3;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .entry-type-scope {
@@ -1076,9 +1081,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Actions */
 .entry-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-md);
   padding-top: var(--space-md);
   border-top: 1px solid var(--border-subtle);
+}
+
+.entry-actions .btn {
+  flex: 1;
+  min-width: 160px;
 }
 
 /* ── Skeleton Loading ──────────────────────────────────────── */
@@ -1170,7 +1181,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .entry-type-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 
   .entry-fields-grid {
@@ -1179,6 +1190,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .entry-result-details {
     grid-template-columns: 1fr;
+  }
+
+  .entry-actions {
+    flex-direction: column;
+  }
+  
+  .entry-actions .btn {
+    width: 100%;
   }
 }
 

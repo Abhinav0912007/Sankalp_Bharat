@@ -14,74 +14,13 @@ import type { ManualRecordRequest, ManualRecordResponse } from '@shared/types/re
 // Posts to Sahiti's /api/records/manual endpoint.
 // ============================================================
 
-/** Source type → available units mapping */
-const SOURCE_TYPE_CONFIG: Record<string, { label: string; units: { value: string; label: string }[]; defaultScope: EmissionScope; categories: string[] }> = {
-  fuel_combustion: {
-    label: 'Fuel Combustion',
-    units: [
-      { value: 'liters', label: 'Liters (L)' },
-      { value: 'gallons', label: 'Gallons (gal)' },
-      { value: 'kg', label: 'Kilograms (kg)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_1,
-    categories: ['Diesel', 'Petrol', 'LPG', 'Natural Gas', 'Coal', 'Furnace Oil'],
-  },
-  electricity: {
-    label: 'Electricity Consumption',
-    units: [
-      { value: 'kWh', label: 'Kilowatt-hours (kWh)' },
-      { value: 'MWh', label: 'Megawatt-hours (MWh)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_2,
-    categories: ['Grid Electricity', 'Captive Power', 'Renewable (tracked)'],
-  },
-  steam_heat: {
-    label: 'Steam / Heating',
-    units: [
-      { value: 'GJ', label: 'Gigajoules (GJ)' },
-      { value: 'MWh', label: 'Megawatt-hours (MWh)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_2,
-    categories: ['Purchased Steam', 'District Heating', 'Purchased Cooling'],
-  },
-  process_emissions: {
-    label: 'Process Emissions',
-    units: [
-      { value: 'kg', label: 'Kilograms (kg)' },
-      { value: 'tonnes', label: 'Tonnes (t)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_1,
-    categories: ['Cement Process', 'Chemical Reactions', 'Metal Smelting', 'Refrigerant Leakage'],
-  },
-  transportation: {
-    label: 'Transportation',
-    units: [
-      { value: 'km', label: 'Kilometers (km)' },
-      { value: 'liters', label: 'Liters (L)' },
-      { value: 'tonne-km', label: 'Tonne-Kilometers' },
-    ],
-    defaultScope: EmissionScope.SCOPE_3,
-    categories: ['Employee Commute', 'Business Travel', 'Freight — Inbound', 'Freight — Outbound'],
-  },
-  waste: {
-    label: 'Waste Disposal',
-    units: [
-      { value: 'kg', label: 'Kilograms (kg)' },
-      { value: 'tonnes', label: 'Tonnes (t)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_3,
-    categories: ['Landfill', 'Incineration', 'Recycling', 'Composting'],
-  },
-  water: {
-    label: 'Water Treatment',
-    units: [
-      { value: 'kL', label: 'Kiloliters (kL)' },
-      { value: 'm3', label: 'Cubic Meters (m³)' },
-    ],
-    defaultScope: EmissionScope.SCOPE_1,
-    categories: ['Wastewater Treatment', 'Supply & Distribution'],
-  },
-};
+/** Source types load dynamically from the backend! */
+interface SourceTypeConfig {
+  label: string;
+  defaultScope: EmissionScope;
+  units: { value: string; label: string }[];
+  categories: string[];
+}
 
 const MONTHS = [
   { value: 1, label: 'January' },
@@ -117,17 +56,24 @@ export default function ManualEntryPage() {
   const [result, setResult] = useState<ManualRecordResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Facilities from API
+  // Backend API constraints
   const [facilities, setFacilities] = useState<{ id: string; name: string; location: string }[]>([]);
+  const [sourceTypeConfig, setSourceTypeConfig] = useState<Record<string, SourceTypeConfig>>({});
 
   useEffect(() => {
+    // 1. Fetch live facilities
     api.get<{ facilities: { id: string; name: string; location: string }[] }>('/api/facilities')
       .then(res => setFacilities(res.data.facilities))
       .catch(() => {}); // silently fail — user can still type ID manually
+
+    // 2. Fetch live data taxonomy (emission factors, categories, units)
+    api.get<{ sourceTypes: Record<string, SourceTypeConfig> }>('/api/metadata/entry-config')
+      .then(res => setSourceTypeConfig(res.data.sourceTypes))
+      .catch(() => {});
   }, []);
 
-  // Derived config
-  const config = useMemo(() => SOURCE_TYPE_CONFIG[sourceType] ?? null, [sourceType]);
+  // Derived config based on backend selection
+  const config = useMemo(() => sourceTypeConfig[sourceType] ?? null, [sourceType, sourceTypeConfig]);
 
   // When source type changes, reset dependent fields
   const handleSourceTypeChange = (newType: string) => {
@@ -138,7 +84,7 @@ export default function ManualEntryPage() {
     setResult(null);
     setError(null);
 
-    const newConfig = SOURCE_TYPE_CONFIG[newType];
+    const newConfig = sourceTypeConfig[newType];
     if (newConfig) {
       setScope(newConfig.defaultScope);
       if (newConfig.units.length === 1) {
@@ -225,7 +171,12 @@ export default function ManualEntryPage() {
               Source Type
             </h2>
             <div className="entry-type-grid">
-              {Object.entries(SOURCE_TYPE_CONFIG).map(([key, cfg]) => (
+              {Object.keys(sourceTypeConfig).length === 0 && (
+                <div style={{ gridColumn: '1 / -1', padding: '30px 20px', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center', background: 'var(--bg-surface)', borderRadius: 'var(--radius-md)', border: '1px dashed var(--border-medium)' }}>
+                  Loading category mappings securely from backend...
+                </div>
+              )}
+              {Object.entries(sourceTypeConfig).map(([key, cfg]) => (
                 <button
                   key={key}
                   type="button"
@@ -233,13 +184,12 @@ export default function ManualEntryPage() {
                   onClick={() => handleSourceTypeChange(key)}
                 >
                   <span className="entry-type-icon">
-                    {key === 'fuel_combustion' && '🔥'}
-                    {key === 'electricity' && '⚡'}
-                    {key === 'steam_heat' && '♨️'}
-                    {key === 'process_emissions' && '🏭'}
-                    {key === 'transportation' && '🚛'}
-                    {key === 'waste' && '♻️'}
-                    {key === 'water' && '💧'}
+                    {key.includes('fuel') || key.includes('diesel') ? '🔥' :
+                     key.includes('electric') ? '⚡' :
+                     key.includes('heat') || key.includes('steam') ? '♨️' :
+                     key.includes('transport') || key.includes('freight') ? '🚛' :
+                     key.includes('waste') ? '♻️' :
+                     key.includes('water') ? '💧' : '🏭'}
                   </span>
                   <span className="entry-type-label">{cfg.label}</span>
                   <span className={`entry-type-scope entry-type-scope--${cfg.defaultScope.toLowerCase()}`}>

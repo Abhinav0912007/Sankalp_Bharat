@@ -24,6 +24,7 @@ import supplierRoutes from './routes/suppliers';
 import reportRoutes from './routes/reports';
 import internalSupplierRoutes from './routes/suppliersInternal';
 import externalSupplierRoutes from './routes/supplierExternal';
+import metadataRoutes from './routes/metadata';
 
 const app = express();
 const PORT = parseInt(process.env.PORT ?? '5000', 10);
@@ -57,6 +58,7 @@ app.use('/api/suppliers', supplierRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/internal/suppliers', internalSupplierRoutes);
 app.use('/api/supplier', externalSupplierRoutes);
+app.use('/api/metadata', metadataRoutes);
 
 // ── 404 Handler ─────────────────────────────────────────────
 app.use((_req, res) => {

@@ -13,6 +13,7 @@ import { parseUploadedFile } from '../services/fileParser';
 import { processBatch, calculateSingle } from '../services/emissionEngine';
 import prisma from '../lib/prisma';
 import fs from 'fs';
+import { supabase } from '../lib/supabase';
 
 const router = Router();
 
@@ -98,7 +99,7 @@ router.post('/manual', async (req: Request, res: Response): Promise<void> => {
       orgId
     );
 
-    // Persist the record
+    // Persist the record in Primary DB (SQLite Prisma Engine)
     const record = await prisma.emissionRecord.create({
       data: {
         organizationId: orgId,
@@ -114,6 +115,24 @@ router.post('/manual', async (req: Request, res: Response): Promise<void> => {
         status: 'SUBMITTED',
       },
     });
+
+    // Simultaneously Backup / Store in Supabase Cloud Storage (PostgREST API)
+    if (supabase) {
+      await supabase.from('EmissionRecord').insert([{
+        id: record.id,
+        organizationId: orgId,
+        facilityId,
+        sourceType,
+        scope,
+        category,
+        activityValue: Number(activityValue),
+        activityUnit,
+        calculatedEmissions,
+        periodMonth: Number(periodMonth),
+        periodYear: Number(periodYear),
+        status: 'SUBMITTED'
+      }]);
+    }
 
     res.status(200).json({
       recordId: record.id,
