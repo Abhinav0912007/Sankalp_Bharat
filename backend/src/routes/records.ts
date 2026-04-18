@@ -130,23 +130,58 @@ router.post('/manual', async (req: Request, res: Response): Promise<void> => {
 router.get('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const orgId = req.user!.orgId;
-    const { scope, facilityId, status } = req.query as Record<string, string>;
+    const { 
+      scope, facilityId, status, 
+      page = '1', limit = '50', 
+      sort = 'createdAt', order = 'desc',
+      search = ''
+    } = req.query as Record<string, string>;
 
-    const records = await prisma.emissionRecord.findMany({
-      where: {
-        organizationId: orgId,
-        ...(scope && { scope }),
-        ...(facilityId && { facilityId }),
-        ...(status && { status }),
-      },
-      include: {
-        facility: { select: { name: true, location: true } },
-        emissionFactor: { select: { name: true, factorUnit: true } },
-      },
-      orderBy: [{ periodYear: 'desc' }, { periodMonth: 'desc' }],
+    const pageNum = Math.max(1, parseInt(page, 10));
+    const limitNum = Math.max(1, parseInt(limit, 10));
+    const skip = (pageNum - 1) * limitNum;
+
+    // Filter conditions
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const whereClause: any = {
+      organizationId: orgId,
+      ...(scope && { scope }),
+      ...(facilityId && { facilityId }),
+      ...(status && { status }),
+    };
+
+    if (search.trim()) {
+      whereClause.OR = [
+        { sourceType: { contains: search.trim() } },
+        { category: { contains: search.trim() } },
+        { activityUnit: { contains: search.trim() } }
+      ];
+    }
+
+    // Execute count and subset query concurrently
+    const [total, records] = await prisma.$transaction([
+      prisma.emissionRecord.count({ where: whereClause }),
+      prisma.emissionRecord.findMany({
+        where: whereClause,
+        include: {
+          facility: { select: { name: true, location: true } },
+          emissionFactor: { select: { name: true, factorUnit: true } },
+        },
+        orderBy: {
+          [sort]: order === 'asc' ? 'asc' : 'desc'
+        },
+        skip,
+        take: limitNum,
+      })
+    ]);
+
+    res.status(200).json({ 
+      data: records,
+      total,
+      page: pageNum,
+      limit: limitNum,
+      totalPages: Math.ceil(total / limitNum)
     });
-
-    res.status(200).json({ records });
   } catch (err) {
     console.error('[RECORDS] List error:', err);
     res.status(500).json({ statusCode: 500, message: 'Failed to retrieve records', error: String(err) });

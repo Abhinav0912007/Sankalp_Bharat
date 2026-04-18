@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useAuthStore } from '../store/authStore';
 
 /**
  * Centralized Axios instance for CarbonLens API.
@@ -17,16 +18,9 @@ const api = axios.create({
 // Request interceptor — attach auth token
 api.interceptors.request.use(
   (config) => {
-    const authData = localStorage.getItem('carbonlens_auth');
-    if (authData) {
-      try {
-        const { token } = JSON.parse(authData);
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-      } catch {
-        // Invalid auth data — proceed without token
-      }
+    const token = useAuthStore.getState().token;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
@@ -39,7 +33,8 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       // Clear auth and redirect to login
-      localStorage.removeItem('carbonlens_auth');
+      const { logout } = useAuthStore.getState();
+      logout();
       window.location.href = '/login';
     } else if (error.response && error.response.status >= 400) {
       const message = error.response.data?.message || error.message || 'An error occurred';

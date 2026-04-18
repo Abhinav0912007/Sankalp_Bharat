@@ -17,6 +17,10 @@ export interface ParsedActivityItem {
   activityType: string;
   value: number;
   unit: string;
+  facilityId?: string;
+  facilityName?: string;
+  month?: number;
+  year?: number;
 }
 
 // ── CSV Parser ──────────────────────────────────────────────
@@ -33,16 +37,38 @@ function parseCSV(filePath: string): ParsedActivityItem[] {
     .map((row): ParsedActivityItem | null => {
       // Flexible column matching (handles different header names)
       const activityType =
-        row['activityType'] ?? row['activity_type'] ?? row['source'] ?? row['type'] ?? '';
+        row['activityType'] ?? row['activity_type'] ?? row['source'] ?? row['type'] ?? row['source_type'] ?? row['fuel_type'] ?? '';
       const rawValue =
         row['value'] ?? row['amount'] ?? row['quantity'] ?? row['activityValue'] ?? '';
       const unit =
         row['unit'] ?? row['units'] ?? row['activityUnit'] ?? '';
 
+      const facilityId = row['facility_id'] ?? row['facilityId'];
+      const facilityName = row['facility_name'] ?? row['facilityName'];
+      const dateStr = row['date'];
+      let month: number | undefined;
+      let year: number | undefined;
+      
+      if (dateStr) {
+        const d = new Date(dateStr);
+        if (!isNaN(d.getTime())) {
+          month = d.getMonth() + 1;
+          year = d.getFullYear();
+        }
+      }
+
       const value = parseFloat(rawValue);
 
       if (!activityType || isNaN(value) || !unit) return null;
-      return { activityType: activityType.trim(), value, unit: unit.trim() };
+      return { 
+        activityType: activityType.trim(), 
+        value, 
+        unit: unit.trim(),
+        facilityId,
+        facilityName,
+        month,
+        year
+      };
     })
     .filter((item): item is ParsedActivityItem => item !== null);
 }
@@ -57,14 +83,36 @@ function parseXLSX(filePath: string): ParsedActivityItem[] {
   return rows
     .map((row): ParsedActivityItem | null => {
       const activityType = String(
-        row['activityType'] ?? row['activity_type'] ?? row['source'] ?? row['type'] ?? ''
+        row['activityType'] ?? row['activity_type'] ?? row['source'] ?? row['type'] ?? row['source_type'] ?? row['fuel_type'] ?? ''
       );
       const rawValue = row['value'] ?? row['amount'] ?? row['quantity'] ?? row['activityValue'] ?? '';
       const unit = String(row['unit'] ?? row['units'] ?? row['activityUnit'] ?? '');
 
+      const facilityId = row['facility_id'] ?? row['facilityId'] ?? undefined;
+      const facilityName = row['facility_name'] ?? row['facilityName'] ?? undefined;
+      const dateStr = row['date'] as string | undefined;
+      let month: number | undefined;
+      let year: number | undefined;
+      
+      if (dateStr) {
+        const d = new Date(dateStr);
+        if (!isNaN(d.getTime())) {
+          month = d.getMonth() + 1;
+          year = d.getFullYear();
+        }
+      }
+
       const value = parseFloat(String(rawValue));
       if (!activityType || isNaN(value) || !unit) return null;
-      return { activityType: activityType.trim(), value, unit: unit.trim() };
+      return { 
+        activityType: activityType.trim(), 
+        value, 
+        unit: unit.trim(),
+        facilityId: typeof facilityId === 'string' ? facilityId : undefined,
+        facilityName: typeof facilityName === 'string' ? facilityName : undefined,
+        month,
+        year
+      };
     })
     .filter((item): item is ParsedActivityItem => item !== null);
 }

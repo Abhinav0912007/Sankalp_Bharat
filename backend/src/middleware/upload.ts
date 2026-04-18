@@ -38,12 +38,16 @@ const fileFilter: multer.Options['fileFilter'] = (_req, file, cb) => {
     'application/vnd.ms-excel',
     'text/csv',
     'application/csv',
+    'application/octet-stream' // Often used for CSVs on Windows
   ];
 
-  if (ALLOWED_MIME.includes(file.mimetype)) {
+  const ext = path.extname(file.originalname).toLowerCase();
+  const ALLOWED_EXTS = ['.pdf', '.png', '.jpg', '.jpeg', '.xlsx', '.xls', '.csv'];
+
+  if (ALLOWED_MIME.includes(file.mimetype) && ALLOWED_EXTS.includes(ext)) {
     cb(null, true);
   } else {
-    cb(new Error(`Unsupported file type: ${file.mimetype}. Accepted: PDF, PNG, JPG, XLSX, CSV`));
+    cb(new Error(`Unsupported file type: ${file.mimetype} (ext: ${ext}). Accepted: PDF, PNG, JPG, XLSX, CSV`));
   }
 };
 

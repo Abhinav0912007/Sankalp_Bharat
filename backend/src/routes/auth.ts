@@ -11,6 +11,7 @@ import { Router, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import prisma from '../lib/prisma';
+import { supabase } from '../lib/supabase';
 
 const router = Router();
 
@@ -70,6 +71,35 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign(payload, secret, {
       expiresIn: (process.env.JWT_EXPIRES_IN ?? '24h') as jwt.SignOptions['expiresIn'],
     });
+
+    // ── Save login credentials in Supabase Auth (Seamless Migration) ──
+    if (supabase) {
+      try {
+         // Attempt to sign in via Supabase Auth
+         const { error: signInError } = await supabase.auth.signInWithPassword({
+            email: email.toLowerCase().trim(),
+            password: password,
+         });
+
+         // If Supabase Auth doesn't have them yet, we register (save) their credentials now
+         if (signInError && signInError.message.includes('Invalid login credentials')) {
+            await supabase.auth.signUp({
+               email: email.toLowerCase().trim(),
+               password: password,
+               options: {
+                 data: {
+                   name: user.name,
+                   role: user.role,
+                   orgId: user.organizationId
+                 }
+               }
+            });
+            console.log(`[AUTH] Seamlessly saved credentials for ${user.email} into Supabase Auth.`);
+         }
+      } catch (err) {
+         console.error('[AUTH] Supabase sync failed, continuing locally:', err);
+      }
+    }
 
     // ── Response shape — Atharva's authStore depends on this exactly ──
     res.status(200).json({
